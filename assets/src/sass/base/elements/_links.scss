@@ -1,0 +1,50 @@
+/*------------------------------------*\
+  #Links
+\*------------------------------------*/
+a {
+  color: $color_link;
+  transition: $global-transition;
+
+  &:visited {
+    color: $color_link_visited;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color_link_hover;
+  }
+
+  &:focus {
+    outline: thin dotted;
+  }
+
+  &:hover,
+  &:active {
+    outline: 0;
+  }
+}
+
+.a--secondary {
+  color: $color_link_secondary;
+  transition: $global-transition;
+
+  &:visited {
+    color: $color_link_visited;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color_link_hover_secondary;
+  }
+
+  &:focus {
+    outline: thin dotted;
+  }
+
+  &:hover,
+  &:active {
+    outline: 0;
+  }
+}

@@ -35,3 +35,53 @@ function wp_indigo_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'wp_indigo_pingback_header' );
+
+
+
+function wp_indigo_typography() {
+	
+	if ( get_theme_mod( 'typography_primary_color' ) == "" ) {
+		$wp_indigo_primary_color = "#1A1A1A";
+	} else {
+		$wp_indigo_primary_color = get_theme_mod( 'typography_primary_color' );
+	}
+	if ( get_theme_mod( 'typography_secondary_color' ) == "" ) {
+		$wp_indigo_secondary_color = "#555555";
+	} else {
+		$wp_indigo_secondary_color = get_theme_mod( 'typography_secondary_color' );
+	}
+	if ( get_theme_mod( 'wp_indigo_tertiary-color' ) == "" ) {
+		$wp_indigo_tertiary_color = "#C4C4C4";
+	} else {
+		$wp_indigo_tertiary_color = get_theme_mod( 'wp_indigo_tertiary-color' );
+	}
+	if ( get_theme_mod( 'wp_indigo_quaternary-color' ) == "" ) {
+		$wp_indigo_quaternary_color = "#3F51B5";
+	} else {
+		$wp_indigo_quaternary_color = get_theme_mod( 'wp_indigo_quaternary-color' );
+	}
+	
+	$html = ':root {	
+	            --wp_indigo_primary-color: '.$wp_indigo_primary_color.';
+	            --wp_indigo_secondary-color: '.$wp_indigo_secondary_color.';
+				--wp_indigo_tertiary-color: '.$wp_indigo_tertiary_color.';
+				--wp_indigo_quaternary-color: '.$wp_indigo_quaternary_color.';
+			}';
+			
+	return $html;
+	
+}
+
+add_action( 'admin_head', 'wp_indigo_theme_settings' );
+add_action( 'wp_head', 'wp_indigo_theme_settings' );
+
+function wp_indigo_theme_settings() {
+	$wp_indigo_theme_typography = wp_indigo_typography();
+
+	?>
+<style>
+<?php echo esc_html($wp_indigo_theme_typography);
+?>
+</style>
+<?php
+}
