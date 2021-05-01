@@ -1,0 +1,22 @@
+.u-ellipse {
+  display: flex; }
+  .u-ellipse::before {
+    content: "";
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    -moz-border-radius: 7.5px;
+    -webkit-border-radius: 7.5px;
+    border-radius: 7.5px;
+    border: 1px solid #f0f0f0;
+    margin: 0px 19px; }
+
+/* Letter spacing */
+.u-letter-space-medium {
+  letter-spacing: 0.1em; }
+
+.u-letter-space-regular {
+  letter-spacing: 0.05em; }
+
+.u-letter-space-small {
+  letter-spacing: 0.03em; }

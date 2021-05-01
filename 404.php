@@ -10,19 +10,29 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<section class="o-page__content o-page__content--center">
 
-    <section class="error-404 not-found">
-        <header class="page-header">
-            <h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'wp-indigo' ); ?></h1>
-        </header><!-- .page-header -->
+    <main id="primary" class="c-main c-main--404 site-main">
+        <section class="c-main__content">
 
-        <div class="page-content">
+            <h1 class="c-main__title">
+                <?php esc_html_e( '404', 'wp-indigo' ); ?>
+            </h1>
 
-        </div><!-- .page-content -->
-    </section><!-- .error-404 -->
+            <p class="c-main__desc h3 c-main__desc--404">
+                <?php esc_html_e( 'Page Not Found!', 'wp-indigo' ); ?>
+            </p>
 
-</main><!-- #main -->
+            <a href=<?php echo esc_url( home_url() ); ?>>
+                <button class="btn btn--error h5--secondary">
+                    <?php esc_html_e( 'HOMEPAGE', 'wp-indigo' ); ?>
+                    <span class="c-main__button-arrow dashicons dashicons-arrow-right-alt2"></span>
+                </button>
+            </a>
 
-<?php
+        </section>
+
+    </main><!-- #main -->
+
+    <?php
 get_footer();

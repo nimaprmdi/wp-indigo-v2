@@ -44,7 +44,7 @@ if ( ! function_exists( 'wp_indigo_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'wp-indigo' ),
+				'primary-menu' => esc_html__( 'Primary', 'wp-indigo' ),
 			)
 		);
 
@@ -140,7 +140,7 @@ function wp_indigo_scripts() {
 	wp_enqueue_style( 'wp-indigo-style', get_stylesheet_uri(), array(), WP_INDIGO_VERSION );
 	wp_style_add_data( 'wp-indigo-style', 'rtl', 'replace' );
 
-	wp_enqueue_style( 'wp-indigo-style', get_template_directory_uri() . '/assets/css/style.css' );
+	wp_enqueue_style( 'wp-indigo-main-style', get_template_directory_uri() . '/assets/css/style.css' );
 
 	wp_enqueue_script( 'wp-indigo-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), WP_INDIGO_VERSION , true );
 	wp_enqueue_script( 'wp-indigo-script', get_template_directory_uri() . '/assets/js/script.js', array(), false, true);

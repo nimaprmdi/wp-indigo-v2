@@ -13,4 +13,18 @@
 get_header(); 
 ?>
 
-<?php get_footer();
+
+<section class="o-page__content o-page__content--center">
+
+    <main id="primary" class="c-main site-main">
+
+        <section class="c-main__content">
+
+            <?php get_template_part( "template-parts/content" , "profile" ); ?>
+
+        </section>
+
+    </main><!-- #main -->
+
+
+    <?php get_footer();

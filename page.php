@@ -15,24 +15,33 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<main id="primary" class="c-main site-main">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+    <header class="c-main__header">
+        <h1 class="c-main__page-title"><?php echo get_the_title(); ?></h1>
+    </header>
 
-			get_template_part( 'template-parts/content', 'page' );
+    <section class="c-main__content c-main__content--page">
+        <?php
+			if ( have_posts() ) :
+				/* Start the Loop */
+				while ( have_posts() ) :
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
+					the_post();
+					get_template_part( 'template-parts/content', 'page' );
+					
+				endwhile;
+				
+			else :
+
+				get_template_part( 'template-parts/content', 'none' );
+
 			endif;
 
-		endwhile; // End of the loop.
 		?>
+    </section>
 
-	</main><!-- #main -->
+</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

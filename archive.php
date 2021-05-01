@@ -10,37 +10,36 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
 
-    <?php if ( have_posts() ) : ?>
+<main id="primary" class="c-main site-main">
 
-    <header class="page-header">
+    <header class="c-main__header">
+        <h1 class="c-main__page-title"><?php esc_html_e( 'Archives', 'wp-indigo' ); ?></h1>
+    </header>
+
+    <section class="c-main__content">
         <?php
-			the_archive_title( '<h1 class="page-title">', '</h1>' );
-			the_archive_description( '<div class="archive-description">', '</div>' );
+			if ( have_posts() ) :
+				/* Start the Loop */
+				while ( have_posts() ) :
+
+					the_post();
+					get_template_part( 'template-parts/content' );
+					
+				endwhile;
+
+				wp_indigo_get_default_pagination();
+
+			else :
+
+				get_template_part( 'template-parts/content', 'none' );
+
+			endif;
+
 		?>
-    </header><!-- .page-header -->
-
-    <?php
-		/* Start the Loop */
-		while ( have_posts() ) :
-			the_post();
-
-			get_template_part( 'template-parts/content', get_post_type() );
-
-		endwhile;
-
-		the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
+    </section>
 
 </main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

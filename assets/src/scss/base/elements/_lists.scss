@@ -1,0 +1,39 @@
+/*------------------------------------*\
+  #Lists
+\*------------------------------------*/
+ul,
+ol {
+  margin-bottom: 24px;
+  padding: 0 0 0 23px;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+li > ul,
+li > ol {
+  margin-bottom: 0;
+  margin-left: 1.5em;
+}
+
+dt {
+  font-weight: 700;
+}
+
+dd {
+  margin: 0 1.5em 1.5em;
+}
+
+li {
+  margin: 0 0 0.5em;
+
+  font-size: 16px;
+  line-height: 27px;
+  letter-spacing: 0.03em;
+  color: $wp_indigo_secondary_color;
+}

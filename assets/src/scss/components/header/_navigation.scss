@@ -1,0 +1,195 @@
+/*------------------------------------*\
+  #Navigations
+\*------------------------------------*/
+.c-nav {
+  width: 100%;
+}
+
+.s-nav {
+  width: 100%;
+  margin: 0px;
+  padding: 59px 0px 0px 0px;
+  text-align: center;
+
+  @include media(tablet) {
+    padding: 0px;
+  }
+
+  li {
+    display: block;
+    position: relative;
+    margin-bottom: 39px;
+    text-transform: uppercase;
+
+    @include media(tablet) {
+      display: inline-block;
+      margin-left: 39px;
+      margin-bottom: 0px;
+
+      &:hover {
+        .sub-menu {
+          // display: block;
+        }
+      }
+    }
+    //
+    &:focus-within {
+      .sub-menu {
+        // display: block;
+      }
+    }
+    //
+
+    &:last-child {
+      // Edit position of last sub menu items
+      .sub-menu {
+        .sub-menu {
+          left: 50px;
+          z-index: 5;
+          .sub-menu {
+            left: 0px;
+            .sub-menu {
+              left: 0px;
+              margin-left: 0px;
+            }
+          }
+        }
+      }
+    }
+    //
+  } //li
+
+  .menu-item {
+    width: 100%;
+    margin-bottom: 34px;
+    display: inline-block;
+    position: relative;
+    font-size: 20px;
+    line-height: 31px;
+    font-family: $wp_indigo_primary_font_regular;
+    font-size: 20px;
+    line-height: 31px;
+    opacity: 0;
+
+    @include media(tablet) {
+      margin-left: 48px;
+      margin-bottom: 0px;
+      font-size: 16px;
+      line-height: 24px;
+      width: max-content;
+      opacity: 1;
+    }
+
+    &:hover {
+      /* First Level From menu */
+      .sub-menu:first-child {
+        opacity: 1;
+        visibility: visible;
+        left: -30px;
+      }
+    }
+  }
+}
+
+/* Global Submenus */
+.sub-menu {
+  display: none;
+  height: max-content;
+  left: 20%;
+  top: -5px;
+  min-width: 100%;
+  max-width: max-content;
+  transition: 0.3s all;
+  position: static;
+  margin-left: 0px;
+  margin-top: 24px;
+  padding-left: 0px;
+  padding-right: 23px;
+  text-align: center;
+  z-index: 90;
+
+  @include media(tablet) {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: left;
+    margin-left: 20px;
+    visibility: hidden;
+    opacity: 0;
+    top: 16px;
+    left: -10px;
+    border: 1px solid $wp-indigo_quaternary_color;
+    background-color: $color_background_body;
+    padding: 0px;
+  }
+
+  .menu-item {
+    margin-left: 0px;
+    min-width: 100%;
+  }
+
+  li {
+    margin-left: 15px;
+    padding-top: 0px;
+    display: block;
+    line-height: 0px;
+    margin-bottom: 16px;
+
+    a {
+      color: $wp_indigo_secondary_color;
+
+      @include media(tablet) {
+        color: $wp_indigo_primary_color;
+      }
+    }
+
+    @include media(tablet) {
+      padding-top: 16px;
+      padding-bottom: 16px;
+      margin-left: 0px;
+      margin-bottom: 0px;
+      width: 100%;
+      padding: 16px 16px;
+      display: flex;
+      justify-content: space-between;
+
+      &:hover {
+        background-color: #f4f4f4;
+      }
+    }
+  }
+
+  .sub-menu {
+    top: 32px;
+    left: 8px;
+    display: none !important;
+
+    @include media(tablet) {
+      display: block !important;
+    }
+  }
+}
+
+.menu-item {
+  position: relative;
+  list-style-type: none;
+
+  // Hover on li and change sub Menus
+  &:hover > .sub-menu {
+    display: block;
+    padding-right: 0px;
+
+    @include media(tablet) {
+      opacity: 1;
+      visibility: visible;
+      left: -20px;
+    }
+  }
+
+  // focus on li and change sub Menus
+  &:focus-within > .sub-menu {
+    opacity: 1;
+    visibility: visible;
+  }
+}

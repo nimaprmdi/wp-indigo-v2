@@ -1,0 +1,26 @@
+.c-profile {
+  width: 100%;
+  text-align: center;
+}
+
+.c-profile__image {
+  width: 106px;
+  height: 106px;
+  display: inline-block;
+
+  img {
+    border-radius: 50%;
+  }
+}
+
+.c-profile__title {
+  margin-top: 28px;
+}
+
+.c-profile__desc {
+  // Wordpress Default class
+  padding-top: 16px;
+  .description {
+    margin: 0;
+  }
+}

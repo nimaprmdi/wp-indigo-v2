@@ -13,7 +13,7 @@ const parallel = gulp.parallel;
 
 const sassTask = (cb) => {
   return gulp
-    .src("assets/src/sass/**/*.scss")
+    .src("assets/src/scss/**/*.scss")
     .pipe(sass().on("error", sass.logError))
     .pipe(gulp.dest("assets/src/css"))
     .pipe(browserSync.stream());
@@ -22,7 +22,7 @@ const sassTask = (cb) => {
 
 const cssConcatTask = (cb) => {
   return gulp
-    .src(["assets/src/css/*.css"])
+    .src("assets/src/css/*.css")
     .pipe(concat("style.css"))
     .pipe(gulp.dest("assets/css"))
     .pipe(browserSync.stream());
@@ -37,21 +37,21 @@ const cleanCssTask = (cb) => {
   cb();
 };
 
-const concatJs = (cb) => {
+const concatVendorJs = (cb) => {
   return gulp
-    .src(["assets/src/js/*.js"])
-    .pipe(concat("main.js"))
+    .src(["./assets/src/js/iconify.js"])
+    .pipe(concat("vendor.js"))
     .pipe(gulp.dest("assets/js"));
   cb();
 };
 
-// const uglifyTask = (cb) => {
-//   return gulp
-//     .src(["assets/js/*.js", "!assets/js/navigation.js"])
-//     .pipe(uglify())
-//     .pipe(gulp.dest("assets/js"));
-//   cb();
-// };
+const concatJs = (cb) => {
+  return gulp
+    .src("./assets/src/js/*.js")
+    .pipe(concat("script.js"))
+    .pipe(gulp.dest("./assets/js"));
+  cb();
+};
 
 exports.default = () =>
   gulp
@@ -62,19 +62,24 @@ exports.default = () =>
 const browserSyncTask = (cb) => {
   browserSync.init({
     proxy: "localhost/indigo",
+    ui: false,
   });
   cb();
 };
 
 const watchTask = () => {
   gulp.watch("./assets/src/scss/**/*.scss", series(sassTask, cssConcatTask));
-  gulp.watch("./assets/src/js/*.js", series(concatJs));
+  gulp.watch(
+    "./assets/src/js/*.js",
+    series(concatJs, concatVendorJs),
+    browserSync.reload
+  );
   gulp.watch("./**/*.php", browserSync.reload);
 };
 
 exports.default = parallel(
   series(sassTask, cssConcatTask),
-  series(concatJs),
+  series(concatJs, concatVendorJs),
   series(browserSyncTask, watchTask)
 );
 

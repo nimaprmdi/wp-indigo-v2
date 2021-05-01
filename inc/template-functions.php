@@ -40,6 +40,7 @@ add_action( 'wp_head', 'wp_indigo_pingback_header' );
 
 function wp_indigo_typography() {
 	
+	/** Colors */
 	if ( get_theme_mod( 'typography_primary_color' ) == "" ) {
 		$wp_indigo_primary_color = "#1A1A1A";
 	} else {
@@ -61,11 +62,26 @@ function wp_indigo_typography() {
 		$wp_indigo_quaternary_color = get_theme_mod( 'wp_indigo_quaternary-color' );
 	}
 	
+	/** Font Family */
+	if ( get_theme_mod( 'wp_indigo_heading_typography' ) == "" ) {
+		$wp_indigo_headings_font = "overpass-light";
+	} else {
+		$wp_indigo_headings_font = get_theme_mod( 'wp_indigo_heading_typography-color' );
+	}
+	if ( get_theme_mod( 'wp_indigo_texts_typography' ) == "" ) {
+		$wp_indigo_text_color = "sourceserifpro-regular";
+	} else {
+		$wp_indigo_text_color = get_theme_mod( 'wp_indigo_texts_typography-color' );
+	}
+
 	$html = ':root {	
 	            --wp_indigo_primary-color: '.$wp_indigo_primary_color.';
 	            --wp_indigo_secondary-color: '.$wp_indigo_secondary_color.';
 				--wp_indigo_tertiary-color: '.$wp_indigo_tertiary_color.';
 				--wp_indigo_quaternary-color: '.$wp_indigo_quaternary_color.';
+
+				--wp_indigo_headings_font: '. $wp_indigo_headings_font .';
+				--wp_indigo_texts_font: '. $wp_indigo_text_color .';
 			}';
 			
 	return $html;
@@ -85,3 +101,129 @@ function wp_indigo_theme_settings() {
 </style>
 <?php
 }
+
+function wp_indigo_show_avatar() {
+	/**
+	 * Display image fields
+	 */
+	if ( has_custom_logo() ) {
+		the_custom_logo();
+	}
+}
+
+function wp_indigo_show_description() {
+	/**
+	 * Display Description
+	 */
+	if ( get_bloginfo( 'description' ) !== '' ) { 
+
+		printf('<h4 class="description">');// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo  bloginfo( 'description' );
+		printf( '</h4>' );// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+}
+
+function wp_indigo_dashicons(){
+	/**
+	 * Enable Dashicons
+	 */
+    wp_enqueue_style('dashicons');
+}
+add_action('wp_enqueue_scripts', 'wp_indigo_dashicons', 999);
+
+
+
+
+/**
+  * Modify LibWP post type name (If libwp plugin exist)
+  */
+  function wp_indigo_modify_libwp_post_type($postTypeName){
+	$postTypeName = 'portfolios';
+	return $postTypeName;
+  }  
+  
+  add_filter('libwp_post_type_1_name', 'wp_indigo_modify_libwp_post_type');
+  
+  
+  /**
+	* Modify LibWP post type arguments (If libwp plugin exist)
+	*/
+  function wp_indigo_modify_libwp_post_type_argument($postTypeArguments){
+	
+	$postTypeArguments['labels'] = [
+		'name'          => _x('Portfolios', 'Post type general name', 'wp-indigo'),
+		'singular_name' => _x('Portfolio', 'Post type singular name', 'wp-indigo'),
+		'menu_name'     => _x('Portfolios', 'Admin Menu text', 'wp-indigo'),
+		'add_new'       => __('Add New', 'wp-indigo'),
+		'edit_item'     => __('Edit Portfolio', 'wp-indigo'),
+		'view_item'     => __('View Portfolio', 'wp-indigo'),
+		'all_items'     => __('All Portfolios', 'wp-indigo'),
+	];
+	
+	$postTypeArguments['rewrite']['slug'] = 'portfolios';
+	$postTypeArguments['public'] = true;
+	$postTypeArguments['show_ui'] = true;
+	$postTypeArguments['menu_position'] = 5;
+	$postTypeArguments['show_in_nav_menus'] = true;
+	$postTypeArguments['show_in_admin_bar'] = true;
+	$postTypeArguments['hierarchical'] = true;
+	$postTypeArguments['can_export'] = true;
+	$postTypeArguments['has_archive'] = true;
+	$postTypeArguments['exclude_from_search'] = false;
+	$postTypeArguments['publicly_queryable'] = true;
+	$postTypeArguments['capability_type'] = 'post';
+	$postTypeArguments['show_in_rest'] = true;
+	$postTypeArguments['supports'] = array('title', 'editor' , 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields');
+  
+	return $postTypeArguments;
+  }  
+  add_filter('libwp_post_type_1_arguments', 'wp_indigo_modify_libwp_post_type_argument');
+  
+  
+  /**
+	* Modify LibWP taxonomy name (If libwp plugin exist)
+	*/
+  function wp_indigo_modify_libwp_taxonomy_name($taxonomyName){
+  
+	$taxonomyName = 'portfolio_category';
+	return $taxonomyName;
+	
+  }
+  add_filter('libwp_taxonomy_1_name', 'wp_indigo_modify_libwp_taxonomy_name');
+  
+  
+  /**
+	* Modify LibWP taxonomy post type name (If libwp plugin exist)
+	*/
+  function wp_indigo_modify_libwp_taxonomy_post_type_name($taxonomyPostTypeName){
+	$taxonomyPostTypeName = 'portfolios';
+	return $taxonomyPostTypeName;
+  }
+  add_filter('libwp_taxonomy_1_post_type', 'wp_indigo_modify_libwp_taxonomy_post_type_name');
+  
+  
+  /**
+	* Modify LibWP taxonomy name (If libwp plugin exist)
+	*/
+  function wp_indigo_modify_libwp_taxonomy_argument($taxonomyArguments){
+  
+	  $taxonomyArguments['labels'] = [
+		'name'          => _x('Portfolio Categories', 'taxonomy general name', 'wp-indigo'),
+		'singular_name' => _x('Portfolio Category', 'taxonomy singular name', 'wp-indigo'),
+		'search_items'  => __('Search Portfolio Categories', 'wp-indigo'),
+		'all_items'     => __('All Portfolio Categories', 'wp-indigo'),
+		'edit_item'     => __('Edit Portfolio Category', 'wp-indigo'),
+		'add_new_item'  => __('Add New Portfolio Category', 'wp-indigo'),
+		'new_item_name' => __('New Portfolio Category Name', 'wp-indigo'),
+		'menu_name'     => __('Portfolio Categories', 'wp-indigo'),
+	];
+	$taxonomyArguments['rewrite']['slug'] = 'portfolio_category';
+	$taxonomyArguments['show_in_rest'] = true;
+  
+	return $taxonomyArguments;
+	
+  }
+  
+  add_filter('libwp_taxonomy_1_arguments', 'wp_indigo_modify_libwp_taxonomy_argument');
+  

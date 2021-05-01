@@ -10,39 +10,34 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="c-main site-main">
 
-    <?php if ( have_posts() ) : ?>
+    <header class="c-main__header">
+        <h1 class="c-main__page-title"><?php esc_html_e( 'Search Result', 'wp-indigo' ); ?></h1>
+    </header>
 
-    <header class="page-header">
-        <h1 class="page-title">
-            <?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'wp-indigo' ), '<span>' . get_search_query() . '</span>' );
-					?>
-        </h1>
-    </header><!-- .page-header -->
+    <section class="c-main__content c-main__content--search">
+        <?php
+			if ( have_posts() ) :
+				/* Start the Loop */
+				while ( have_posts() ) :
 
-    <?php
-			/* Start the Loop */
-		while ( have_posts() ) :
-			the_post();
+					the_post();
+					get_template_part( 'template-parts/content' );
+					
+				endwhile;
 
-			get_template_part( 'template-parts/content', 'search' );
+				wp_indigo_get_default_pagination();
 
-		endwhile;
+			else :
 
-			the_posts_navigation();
+				get_template_part( 'template-parts/content', 'none' );
 
-		else :
+			endif;
 
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
 		?>
-
+    </section>
 </main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

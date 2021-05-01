@@ -1,0 +1,27 @@
+/*------------------------------------*\
+  #Pagination
+\*------------------------------------*/
+.c-pagination {
+  width: 100%;
+  padding-top: 13px;
+  display: flex;
+  justify-content: center;
+
+  @include media(tablet) {
+    padding-top: 48px;
+  }
+}
+
+.page-numbers.current {
+  margin-right: 26px;
+  color: $wp_indigo_secondary_color;
+}
+
+.page-numbers {
+  margin: 0px 4px;
+  font-family: $wp_indigo_primary_font_light;
+  font-size: 13px;
+  line-height: 21px;
+  letter-spacing: 0.05em;
+  color: $wp-indigo_primary_color;
+}

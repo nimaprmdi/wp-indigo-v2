@@ -1,0 +1,35 @@
+/*------------------------------------*\
+  #Buttons (wordpress defaults)
+\*------------------------------------*/
+
+button,
+.wp-block-button__link,
+.btn,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  background-color: $wp-indigo_primary_color; //1a1a1a
+  color: $color_background_body !important;
+  transition: $global-transition;
+  border: none;
+  cursor: pointer;
+  padding: 13px 30px 10px;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "overpass";
+  letter-spacing: 0.1em;
+
+  &:hover {
+    background-color: $wp-indigo_main_accent_color;
+    color: $color_background_body;
+  }
+
+  &:focus {
+    background-color: $wp-indigo_main_accent_color;
+    color: $color_background_body;
+  }
+}
+
+.wp-block-button {
+  margin: 1rem 0;
+}

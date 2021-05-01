@@ -1,0 +1,78 @@
+/*------------------------------------*\
+  #Widgets
+\*------------------------------------*/
+.c-widget {
+  width: 260px;
+  padding-top: 253px;
+  margin-left: 65px;
+  display: none;
+
+  @include media(tablet) {
+    display: block;
+  }
+
+  .widget_search {
+    position: relative;
+    padding-bottom: 48px;
+  }
+
+  .search-field {
+    margin-top: 0px;
+    padding: 9px;
+  }
+
+  .search-submit {
+    background-color: transparent;
+    font-size: 0px;
+    position: absolute;
+    right: -12px;
+    top: -6px;
+    background: url("https://api.iconify.design/bx:bx-search-alt-2.svg") no-repeat
+      center center / contain;
+
+    background-size: 20px;
+
+    &:hover {
+      background-color: transparent;
+      background: url("https://api.iconify.design/bx:bx-search-alt-2.svg?color=%233f51b5")
+        no-repeat center center / contain;
+      background-size: 20px;
+    }
+
+    &:focus {
+      background-color: transparent;
+    }
+  }
+}
+
+.c-widget__title {
+  margin-bottom: 16px;
+}
+
+.c-widget__tag {
+  margin-right: 8px;
+  &::before {
+    content: "#";
+  }
+}
+
+/* WordPress Default Widget */
+.widget {
+  ul {
+    margin-top: 16px;
+    margin-bottom: 48px;
+    list-style-type: none;
+    padding-left: 0px;
+    margin-left: 0px;
+
+    font-family: $wp_indigo_headings_font;
+  }
+
+  li {
+    margin-bottom: 10px;
+    line-height: 21px;
+    a {
+      font-weight: 300;
+    }
+  }
+}

@@ -56,6 +56,89 @@ function wp_indigo_customize_partial_blogdescription() {
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function wp_indigo_customize_preview_js() {
-	wp_enqueue_script( 'wp-indigo-customizer', get_template_directory_uri() . '/assets/js/customizer.js', array( 'customize-preview' ), _S_VERSION, true );
+	wp_enqueue_script( 'wp-indigo-customizer', get_template_directory_uri() . '/assets/js/customizer.js', array( 'customize-preview' ), WP_INDIGO_VERSION, true );
 }
 add_action( 'customize_preview_init', 'wp_indigo_customize_preview_js' );
+
+
+
+/* Kirki  */
+if( function_exists( 'kirki' ) ) {
+
+
+	/*
+	 *	Kirki - Config
+	 */
+	Kirki::add_config( 'wp_indigo_theme', array(
+		'capability'    => 'edit_theme_options',
+		'option_type'   => 'theme_mod',
+	) );
+
+
+	/*
+	 *	Kirki -> Panels
+	 */
+
+	// Footer
+	Kirki::add_panel( 'footer', array(
+		'priority' => 180,
+		'title'    => esc_html__( 'Footer', 'wp_indigo' ),
+	) );
+
+	/*
+	 *	Kirki -> Sections
+	 */
+
+	/* Social medias */
+	Kirki::add_section( 'socials', array(
+		'title'    => esc_html__( 'Socials', 'wp_indigo' ),
+		'panel'    => 'footer',
+		'priority' => 6,
+	) );
+
+ 	/*
+    *	Kirki -> fields
+	*/
+	
+	// -- Socials --
+	Kirki::add_field( 'wp_indigo', [
+		'type'     => 'link',
+		'settings' => 'facebook',
+		'label'    => esc_html__( 'Facebook', 'wp_indigo' ),
+		'section'  => 'socials',
+		'priority' => 10,
+	] );
+
+	Kirki::add_field( 'wp_indigo', [
+		'type'     => 'link',
+		'settings' => 'twitter',
+		'label'    => esc_html__( 'Twitter', 'wp_indigo' ),
+		'section'  => 'socials',
+		'priority' => 10,
+	] );
+
+	Kirki::add_field( 'wp_indigo', [
+		'type'     => 'link',
+		'settings' => 'instagram',
+		'label'    => esc_html__( 'Instagram', 'wp_indigo' ),
+		'section'  => 'socials',
+		'priority' => 10,
+	] );
+
+	Kirki::add_field( 'wp_indigo', [
+		'type'     => 'link',
+		'settings' => 'linkedin',
+		'label'    => esc_html__( 'Linkedin', 'wp_indigo' ),
+		'section'  => 'socials',
+		'priority' => 10,
+	] );
+	
+	Kirki::add_field( 'wp_indigo', [
+		'type'     => 'link',
+		'settings' => 'github',
+		'label'    => esc_html__( 'Github', 'wp_indigo' ),
+		'section'  => 'socials',
+		'priority' => 10,
+	] );
+	
+}
