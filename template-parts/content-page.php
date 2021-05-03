@@ -14,7 +14,7 @@
 
     <?php wp_indigo_post_thumbnail(); ?>
 
-    <div class="entry-content">
+    <div class="c-single__entry-content">
         <?php
 		the_content();
 
@@ -28,7 +28,7 @@
     </div><!-- .entry-content -->
 
     <?php if ( get_edit_post_link() ) : ?>
-    <footer class="entry-footer">
+    <footer class="c-single__entry-footer">
         <?php
 			edit_post_link(
 				sprintf(

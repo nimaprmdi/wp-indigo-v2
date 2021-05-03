@@ -12,7 +12,7 @@ get_header();
 ?>
 
 
-<main id="primary" class="c-main site-main">
+<main id="primary" class="c-main c-main--portfolios site-main">
     <header class="c-main__header">
 
         <h1 class="c-main__page-title"><?php esc_html_e( 'Portfolio', 'wp-indigo' ); ?></h1>

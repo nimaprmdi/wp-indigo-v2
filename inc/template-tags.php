@@ -346,72 +346,81 @@ if ( ! function_exists( 'wp_indigo_taxonomy_filter' ) ) :
 	 *  Return taxonomy filter
 	 */
 	function wp_indigo_taxonomy_filter( $wp_indigo_className = "" ,  $wp_indigo_getSeparator = ", " , $wp_indigo_is_limited = false ,  $wp_indigo_taxonomy = "category" , $wp_indigo_hard_limit = false ) {
-		
 		$taxonomies = get_terms( array(
-			'taxonomy' => $wp_indigo_taxonomy ,
+			'taxonomy' => $wp_indigo_taxonomy,
 			'hide_empty' => false
 		) );
-
 		$taxonomny_counter = 0;
-		 
 		$separator = $wp_indigo_getSeparator;
-		
 		if ( !empty($taxonomies) ) {
 			$output = '';
 			foreach( $taxonomies as $category ) {
-
-				if($wp_indigo_hard_limit === true && $taxonomny_counter === 1){
-					break;
-				}
-				if($wp_indigo_is_limited === true && $taxonomny_counter === 4){
+				if($wp_indigo_is_limited === true && $taxonomny_counter === 4 || $wp_indigo_hard_limit === true && $taxonomny_counter === 1){
 					break;
 				}
 				$taxonomny_counter++;
-
 				if ($category->count != 0) {
 					/* translators: return poject_category items for filtering */
 					$output .= '<a class="'.esc_attr($wp_indigo_className).'" href="'. site_url() . '/'. get_post_type().'/?'.$wp_indigo_taxonomy.'=' . esc_html( $category->name ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'wp-indigo' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
 				}
 			}
-			echo wp_kses_post(trim( $output ));
+			echo wp_kses_post(trim( $output , $separator ));
 		}
 	}
-
 endif;
-
-
 
 
 if ( ! function_exists( 'wp_indigo_category_filter' ) ) :
 	/**
-	 *  Return taxonomy filter
-	 */
+	  *  Return Category filter
+	  */
 	function wp_indigo_category_filter( $wp_indigo_className = "" ) {
-
 		$categories = get_categories();
-			foreach($categories as $category) {
-			echo '<a class="'.$wp_indigo_className.'" href="' . get_category_link($category->term_id) . '">' . $category->name . '</a>';
+		global $wp_query;
+	
+		$wp_indigo_all_active_class = "";
+		if(empty($wp_query->query['category_name'])){
+			$wp_indigo_all_active_class = "active";
 		}
-	}
-
+		
+		echo '<a class="'.esc_attr( $wp_indigo_className ).' '.esc_attr( $wp_indigo_all_active_class ).'" href='.site_url().'/blog>';
+		echo esc_html_e( 'All ', 'wp-indigo' );
+		echo '</a>';
+		
+		foreach($categories as $category) {
+			$classactive = "";
+			
+			if(!empty($wp_query->query['category_name'])){
+				$current_category = $wp_query->query['category_name'];
+				$current_category = str_replace('+', ' ', $current_category);
+			}			
+			if($category != null && !empty($wp_query->query['category_name'])  && $category->name  == $current_category){
+				$classactive = "active";
+			}
+			echo '<a class="'.$wp_indigo_className.' '.$classactive.'" href="'. site_url() . '/blog/?category_name=' . esc_html( $category->name ) . '">' . $category->name . '</a>';
+		}
+	}	
 endif;
-
-
 
 
 if ( ! function_exists( 'wp_indigo_get_taxonomy' ) ) :
     /**
-      * Display Post Tags (Custom taxonomy)
+	  * 
+	  * Display Post Tags (Custom taxonomy)
       */
-    function wp_indigo_get_taxonomy( $wp_indigo_taxonomy_name = "" , $wp_indigo_class_name = "" ) {
-		
+    function wp_indigo_get_taxonomy( $wp_indigo_taxonomy_name = "" , $wp_indigo_class_name = "" , $wp_indigo_tag_name = "span" , $wp_indigo_seprator = "" ) {
         $wp_indigo_custom_taxs = get_the_terms( get_the_ID(), $wp_indigo_taxonomy_name );
-		
+	
+		$wp_indigo_output = "";
+
         if (is_array($wp_indigo_custom_taxs) && !empty($wp_indigo_custom_taxs)) {
             if( !empty( $wp_indigo_taxonomy_name ) ){
                 foreach ( $wp_indigo_custom_taxs as $tax ) {
-                    echo '<a class="'.esc_attr(  $wp_indigo_class_name  ).' " href="'.esc_url( get_tag_link( $tax->term_id ) ).'">' . __( $tax->name ) . '</a>';
+                    $wp_indigo_output .= '<'. esc_html($wp_indigo_tag_name) .' class="'.esc_attr(  $wp_indigo_class_name  ).' " href="'.esc_url( get_tag_link( $tax->term_id ) ).'">' . __( $tax->name ) . '</'. esc_html($wp_indigo_tag_name) .'>'. $wp_indigo_seprator;
                 }
+
+				echo wp_kses_post( trim( $wp_indigo_output , $wp_indigo_seprator) );
+
             }
         }
     }
@@ -420,8 +429,8 @@ endif;
 
 if ( ! function_exists( 'wp_indigo_get_taxonomy_list' ) ) :
     /**
-      * Display Post Tags (Custom taxonomy)
-      */
+	  * Display Post Tags (Custom taxonomy)
+	  */
     function wp_indigo_get_taxonomy_list() {
 		
         $args = array(
@@ -431,7 +440,7 @@ if ( ! function_exists( 'wp_indigo_get_taxonomy_list' ) ) :
 		);
 		
 		$categories = get_categories($args);
-		   
+		
 		foreach($categories as $category) { 
 			echo '<a class="c-widget__tag h6" href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $category->name ) . '" ' . '>' . $category->name.'</a>';
 		}

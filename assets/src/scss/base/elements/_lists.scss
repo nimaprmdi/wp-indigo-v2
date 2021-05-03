@@ -3,6 +3,7 @@
 \*------------------------------------*/
 ul,
 ol {
+  margin: 0px;
   margin-bottom: 24px;
   padding: 0 0 0 23px;
 }
@@ -31,9 +32,6 @@ dd {
 
 li {
   margin: 0 0 0.5em;
-
-  font-size: 16px;
-  line-height: 27px;
   letter-spacing: 0.03em;
   color: $wp_indigo_secondary_color;
 }

@@ -21,23 +21,3 @@ a {
     outline: 0;
   }
 }
-
-.a--secondary {
-  color: $color_link_secondary;
-  transition: $global-transition;
-
-  &:hover,
-  &:focus,
-  &:active {
-    color: $color_link_hover_secondary; //555555
-  }
-
-  &:focus {
-    outline: thin dotted;
-  }
-
-  &:hover,
-  &:active {
-    outline: 0;
-  }
-}

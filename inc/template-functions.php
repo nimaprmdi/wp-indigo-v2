@@ -225,5 +225,4 @@ add_action('wp_enqueue_scripts', 'wp_indigo_dashicons', 999);
 	
   }
   
-  add_filter('libwp_taxonomy_1_arguments', 'wp_indigo_modify_libwp_taxonomy_argument');
-  
+add_filter('libwp_taxonomy_1_arguments', 'wp_indigo_modify_libwp_taxonomy_argument');

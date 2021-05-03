@@ -20,13 +20,12 @@ input[type="color"],
 textarea {
   width: 100%;
   margin-top: 8px;
-  border: none;
   padding: 14px 0px 15px 14px;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 16px;
   letter-spacing: 0.03em;
   border: 1px solid $wp-indigo_neutral_gray_light_color;
-  color: #1a1a1a;
+  color: $wp-indigo_primary_color;
 
   &::placeholder {
     font-weight: 400;
@@ -75,4 +74,40 @@ input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
   display: none;
+}
+
+/* Custom Check box */
+input[type="checkbox"] {
+  width: 35px;
+
+  height: 16px;
+  max-width: 16px;
+  max-height: 16px;
+  outline: $wp-indigo_tertiary_color solid 1.8px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  position: relative;
+  left: 2px;
+  top: 50%;
+  @include media(tablet) {
+    width: 16px;
+  }
+
+  &:active,
+  &:focus {
+    outline: $wp-indigo_quaternary_color solid 1.8px;
+  }
+}
+
+input[type="checkbox"]:checked {
+  &:before {
+    margin: 0px;
+    padding: 0px;
+    content: url("https://api.iconify.design/bi:check.svg?color=%23000000&height=16");
+    vertical-align: -0.125em;
+    display: inline-block;
+    max-height: 16px;
+  }
 }

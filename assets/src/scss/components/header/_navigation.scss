@@ -10,6 +10,7 @@
   margin: 0px;
   padding: 59px 0px 0px 0px;
   text-align: center;
+  font-size: 0px;
 
   @include media(tablet) {
     padding: 0px;
@@ -191,5 +192,11 @@
   &:focus-within > .sub-menu {
     opacity: 1;
     visibility: visible;
+  }
+}
+
+.current-menu-item {
+  a {
+    color: $wp-indigo_quaternary_color;
   }
 }

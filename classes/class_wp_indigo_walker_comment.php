@@ -41,7 +41,6 @@ class Wp_indigo_walker_comment extends Walker_Comment
 	                        printf('<div class="comment-author comment-author-name h4 u-letter-space-small">%s</div>', esc_html(get_comment_author($comment)));
                         }
 	                    ?>
-
                     <div class="comment-time time h6 u-letter-space-regular">
                         <time datetime="<?php comment_time('c'); ?>">
                             <?php

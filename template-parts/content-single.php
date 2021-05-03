@@ -24,15 +24,23 @@
 
             <div class="c-single__entry-meta">
 
+                <?php 
+                
+                if ( 'portfolios' == get_post_type() ){ 
+                    wp_indigo_get_taxonomy( "portfolio_category" , "c-single__cat u-link--secondary h6" , "a" , "");
+                }
+                else { ?>
+
                 <div class="c-single__author">
                     <div class="c-single__author__avatar">
                         <?php echo get_avatar( get_the_author_meta('user_email'), '80', '' ); ?>
                     </div>
-
                     <div class="c-single__author__info">
                         <?php wp_indigo_posted_by("c-single__author__link"); ?>
                     </div>
                 </div>
+
+                <?php } ?>
 
                 <span class="u-ellipse"></span>
 
@@ -53,9 +61,7 @@
     <section class="c-single__entry-content">
 
         <div class="c-single__thumbnail">
-
             <?php the_post_thumbnail( 'full' ); ?>
-
         </div>
 
         <div class="c-single__content">
@@ -78,9 +84,7 @@
         </div>
 
         <div class="c-single__tags">
-
             <?php wp_indigo_get_custom_category('' , 'c-single__tag h6 u-letter-space-regular'); ?>
-
         </div>
 
         <?php if ( 'portfolios' != get_post_type() ){ ?>

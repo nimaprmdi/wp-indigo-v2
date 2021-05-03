@@ -4,4 +4,10 @@
 body {
   height: 100vh;
   background-color: $color_background_body;
+
+  font-size: 13px;
+}
+
+div {
+  font-size: inherit;
 }

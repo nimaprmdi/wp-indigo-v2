@@ -17,7 +17,7 @@
   &:hover,
   &:focus {
     .c-post__entry-meta {
-      opacity: 1;
+      // opacity: 1;
     }
   }
 
@@ -57,6 +57,21 @@
   }
 }
 
+.c-post__link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  &:hover,
+  &:focus {
+    .c-post__entry-meta {
+      opacity: 1;
+    }
+  }
+}
+
 @for $i from 1 through 4 {
   .c-post--portfolios:nth-child(#{$i}) {
     grid-auto-flow: 1;
@@ -91,9 +106,6 @@
   }
 }
 
-.c-post__entry-title-link:focus > .c-post__entry-meta {
-  opacity: 1;
-}
 .c-post__category {
   display: inline-block;
   padding-top: 4px;

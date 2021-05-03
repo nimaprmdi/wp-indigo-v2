@@ -23,7 +23,7 @@
             ?>
 
             <div class="c-post__category">
-                <?php  wp_indigo_get_custom_category('' , 'c-post__cats c-post__cats--blog a--secondary h6'); ?>
+                <?php  wp_indigo_get_custom_category('' , 'c-post__cats c-post__cats--blog u-link--secondary h6'); ?>
             </div>
 
         </div><!-- c-post__entry-meta -->
