@@ -1,15 +1,27 @@
 /*------------------------------------*\
   #Single
 \*------------------------------------*/
+
+.c-single {
+  width: 555px;
+  max-width: 100%;
+}
+
 /* Entry Header */
 .c-single__entry-header {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 39px;
 
   @include media(tablet) {
     margin-bottom: 48px;
+    width: 100%;
   }
+}
+
+.c-single__entry-header__content {
+  width: 555px;
+  max-width: 100%;
 }
 
 .c-single__entry-title {
@@ -73,6 +85,14 @@
 }
 
 /* Content */
+
+.c-single__entry-content {
+  ul {
+    font-size: 16px;
+    line-height: 27px;
+    letter-spacing: 0.03em;
+  }
+}
 .c-single__thumbnail {
   margin-bottom: 39px;
   height: 200px;
@@ -91,6 +111,11 @@
   a {
     border-bottom: 1px solid $wp-indigo_quaternary_color;
     padding-bottom: 3px;
+  }
+
+  li {
+    font-size: 16px;
+    line-height: 27px;
   }
 }
 

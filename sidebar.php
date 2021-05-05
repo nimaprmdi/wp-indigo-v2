@@ -7,10 +7,10 @@
  * @package wp-indigo
  * 
  */
-if (!is_active_sidebar( 'sidebar-1' )){
+if (!is_active_sidebar( 'primary-sidebar' )){
 	return;
 }
 ?>
 <aside id="secondary" class="c-widget widge-area">
-    <?php dynamic_sidebar( 'sidebar-1' ); ?>
+    <?php dynamic_sidebar( 'primary-sidebar' ); ?>
 </aside><!-- #secondary -->

@@ -18,10 +18,6 @@ get_header();
         <h1 class="c-main__page-title"><?php esc_html_e( 'Portfolio', 'wp-indigo' ); ?></h1>
 
         <div class="c-main__category">
-            <a class="c-main__cat h3 h3--normal" href=<?php echo site_url()."/".esc_html( get_post_type()) ?>>
-                <?php esc_html_e( 'All ', 'wp-indigo' ); ?>
-            </a>
-
             <?php wp_indigo_taxonomy_filter("c-main__cat h3 h3--normal" , "" , false , "portfolio_category");?>
         </div>
 

@@ -1,7 +1,10 @@
 /*------------------------------------*\
   #Comments
 \*------------------------------------*/
-
+.comments-area {
+  width: 555px;
+  max-width: 100%;
+}
 .comment {
   margin-top: 30px;
 
@@ -26,6 +29,7 @@
 
 .c-comments__desc {
   padding-bottom: 55px;
+  color: $wp_indigo_secondary_color;
 
   @include media(tablet) {
     padding-bottom: 50px;

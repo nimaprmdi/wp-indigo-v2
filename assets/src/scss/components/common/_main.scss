@@ -8,6 +8,13 @@
   min-height: 100%;
   height: max-content;
 
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+
+  animation-fill-mode: forwards;
+
   @include media(tablet) {
     width: 555px;
     max-width: 555px;
@@ -27,6 +34,11 @@
 .c-main--wide {
   @include media(tablet) {
     padding: 109px 0px 64px 0px;
+    width: 880px;
+    max-width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 

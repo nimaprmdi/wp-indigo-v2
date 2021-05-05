@@ -13,10 +13,12 @@ input[type="submit"] {
   transition: $global-transition;
   border: none;
   cursor: pointer;
-  padding: 13px 30px 10px;
-  font-size: 16px;
-  line-height: 24px;
-  font-family: "overpass";
+  padding: 12.5px 30px;
+
+  font-size: 13px;
+  line-height: 21px;
+  font-weight: 300;
+  font-family: $wp_indigo_primary_font_light;
   letter-spacing: 0.1em;
 
   &:hover {

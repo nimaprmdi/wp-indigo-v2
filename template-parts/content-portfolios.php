@@ -19,7 +19,7 @@
                 the_title( '<h2 class="c-post__entry-title">', '</h2>' );
             ?>
             <div class="c-post__category">
-                <?php wp_indigo_get_taxonomy( "portfolio_category" , "c-post__cat u-link--secondary h6"  , "span" , ", "); ?>
+                <?php wp_indigo_get_taxonomy( "portfolio_category" , "c-post__cat u-link--secondary h6"  , "span" , ", " ); ?>
             </div>
         </div>
     </a>

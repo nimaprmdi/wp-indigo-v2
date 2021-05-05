@@ -49,6 +49,7 @@
                         if ( has_nav_menu( 'primary-menu' ) ) {
                             wp_nav_menu(
                                 array(
+                                    'walker'          => new Wp_indigo_walker_nav_menu(),
                                     'theme_location'  => 'primary-menu',
                                     'menu_id'         => 'primary-menu',
                                     'menu_class'      => 's-nav nav-menu',

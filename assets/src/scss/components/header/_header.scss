@@ -8,6 +8,13 @@
   display: flex;
   justify-content: center;
 
+  opacity: 0;
+  animation-name: fadeInDown;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+
+  z-index: 100;
+
   @include media(tablet) {
     margin-top: 48px;
   }

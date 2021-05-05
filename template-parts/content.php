@@ -23,14 +23,16 @@
             ?>
 
             <div class="c-post__category">
-                <?php  wp_indigo_get_custom_category('' , 'c-post__cats c-post__cats--blog u-link--secondary h6'); ?>
+                <?php  wp_indigo_get_custom_category('' , 'c-post__cat c-post__cat--blog u-link--secondary h6'); ?>
             </div>
 
         </div><!-- c-post__entry-meta -->
 
         <div class="c-post__date">
             <span class="h6">
-                <?php echo esc_html( get_the_date( "M d, Y" ) ) ?>
+                <a href="<?php echo esc_url( get_permalink() ) ?>" rel="bookmark">
+                    <?php echo esc_html( get_the_date( "M d, Y" ) ) ?>
+                </a>
             </span>
         </div><!-- c-post__date -->
 

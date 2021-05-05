@@ -108,7 +108,7 @@ function wp_indigo_widgets_init() {
 	register_sidebar(
 		array(
 			'name'          => esc_html__( 'Sidebar', 'wp-indigo' ),
-			'id'            => 'sidebar-1',
+			'id'            => 'primary-sidebar',
 			'description'   => esc_html__( 'Add widgets here.', 'wp-indigo' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',

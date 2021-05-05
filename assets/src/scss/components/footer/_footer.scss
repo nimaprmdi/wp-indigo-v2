@@ -10,7 +10,12 @@
   padding-top: 48px;
   width: 100%;
 
-  // background-color: lightgrey;]
+  opacity: 0;
+
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
 
   @include media(tablet) {
     margin-top: auto;

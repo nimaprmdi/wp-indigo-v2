@@ -16,20 +16,21 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
+			get_template_part( 'template-parts/components/single-header' );
+
 			get_template_part( 'template-parts/content', 'single' );
-			
+
+			if ('portfolios' != get_post_type()) get_sidebar();
 			
 			if ( comments_open() || get_comments_number() ) :
 				comments_template();
 			endif;
 
-		endwhile;// End of the loop.
+		endwhile;// End of the loop.	
+
 	?>
 
 </main><!-- #main -->
 
 <?php
-if ( 'portfolios' != get_post_type() ){
-	get_sidebar();
-}
 get_footer();

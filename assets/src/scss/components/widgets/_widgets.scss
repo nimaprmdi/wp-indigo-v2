@@ -3,9 +3,14 @@
 \*------------------------------------*/
 .c-widget {
   width: 260px;
-  padding-top: 253px;
   margin-left: 65px;
   display: none;
+
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-delay: 0.8s;
+  animation-fill-mode: forwards;
 
   @include media(tablet) {
     display: block;
@@ -74,5 +79,15 @@
     a {
       font-weight: 300;
     }
+  }
+}
+
+.tag-cloud-link {
+  color: $wp_indigo_secondary_color;
+
+  margin-right: 4px;
+
+  &:before {
+    content: "#";
   }
 }

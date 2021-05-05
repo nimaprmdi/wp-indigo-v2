@@ -14,13 +14,6 @@
     margin-bottom: 0px;
   }
 
-  &:hover,
-  &:focus {
-    .c-post__entry-meta {
-      // opacity: 1;
-    }
-  }
-
   .c-post__thumbnail {
     width: 100%;
     height: 100%;
@@ -36,7 +29,7 @@
   .c-post__entry-meta {
     position: absolute;
     z-index: 4;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(63, 81, 181, 0.59);
     top: 0;
     width: 100%;
     height: 100%;
@@ -100,6 +93,7 @@
   letter-spacing: 0.03em;
   margin: 0px;
   max-width: 100%;
+  color: $color_background_body;
 
   @include media(tablet) {
     display: block;
@@ -117,7 +111,7 @@
   }
 }
 
-.c-post__cats {
+.c-post__cat {
   letter-spacing: 0.05em;
 
   &::before {
@@ -141,8 +135,22 @@
   }
 }
 
-.c-post__cats--blog {
+.c-post__cat {
+  color: $color_background_body;
+  &::after {
+    content: ", ";
+  }
+
+  &:last-child {
+    &::after {
+      content: "";
+    }
+  }
+}
+
+.c-post__cat--blog {
   margin-right: 4px;
+  color: $wp_indigo_secondary_color;
 }
 
 .c-post__date {

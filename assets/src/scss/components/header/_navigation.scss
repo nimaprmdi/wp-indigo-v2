@@ -45,12 +45,15 @@
       // Edit position of last sub menu items
       .sub-menu {
         .sub-menu {
-          left: 50px;
           z-index: 5;
           .sub-menu {
-            left: 0px;
+            margin-left: 0px;
+            display: block !important;
+            position: absolute;
+            top: 60%;
+            left: 5% !important;
+            transform: translate(0%, 0%);
             .sub-menu {
-              left: 0px;
               margin-left: 0px;
             }
           }
@@ -64,7 +67,7 @@
     width: 100%;
     margin-bottom: 34px;
     display: inline-block;
-    position: relative;
+    // position: relative;
     font-size: 20px;
     line-height: 31px;
     font-family: $wp_indigo_primary_font_regular;
@@ -86,7 +89,6 @@
       .sub-menu:first-child {
         opacity: 1;
         visibility: visible;
-        left: -30px;
       }
     }
   }
@@ -107,7 +109,7 @@
   padding-left: 0px;
   padding-right: 23px;
   text-align: center;
-  z-index: 90;
+  z-index: 150;
 
   @include media(tablet) {
     position: absolute;
@@ -115,19 +117,31 @@
     flex-wrap: wrap;
     justify-content: space-between;
     text-align: left;
-    margin-left: 20px;
+    margin-left: 0px;
     visibility: hidden;
     opacity: 0;
-    top: 16px;
-    left: -10px;
-    border: 1px solid $wp-indigo_quaternary_color;
-    background-color: $color_background_body;
+    top: 24px;
+    left: auto;
+    border: 1px solid $wp-indigo_neutral_gray_light_second_color;
     padding: 0px;
   }
 
   .menu-item {
     margin-left: 0px;
     min-width: 100%;
+    background-color: $color_background_body;
+    z-index: 150;
+
+    text-transform: capitalize;
+    font-size: 13px;
+    line-height: 16px;
+    font-family: $wp_indigo_secondary_font_regular;
+
+    display: inline-block;
+
+    @include media(tablet) {
+      display: flex;
+    }
   }
 
   li {
@@ -142,6 +156,10 @@
 
       @include media(tablet) {
         color: $wp_indigo_primary_color;
+      }
+
+      &:hover {
+        color: $wp-indigo_quaternary_color;
       }
     }
 
@@ -163,17 +181,23 @@
 
   .sub-menu {
     top: 32px;
-    left: 8px;
+    // left: 8px;
     display: none !important;
+    z-index: 900;
 
     @include media(tablet) {
+      margin-left: 0px;
       display: block !important;
+      position: absolute;
+      top: 0%;
+      left: 100% !important;
+      transform: translate(0%, 0%);
     }
   }
 }
 
 .menu-item {
-  position: relative;
+  // position: relative;
   list-style-type: none;
 
   // Hover on li and change sub Menus
@@ -184,7 +208,6 @@
     @include media(tablet) {
       opacity: 1;
       visibility: visible;
-      left: -20px;
     }
   }
 
@@ -198,5 +221,14 @@
 .current-menu-item {
   a {
     color: $wp-indigo_quaternary_color;
+  }
+}
+
+.c-nav__arrow-icon {
+  margin-top: 5px;
+  margin-left: 8px;
+
+  @include media(tablet) {
+    margin-top: 0px;
   }
 }

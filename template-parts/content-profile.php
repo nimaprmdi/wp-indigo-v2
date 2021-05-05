@@ -7,8 +7,6 @@
  * @package wp-indigo
  */
 ?>
-
-
 <div class="c-profile">
 
     <div class="c-profile__image">

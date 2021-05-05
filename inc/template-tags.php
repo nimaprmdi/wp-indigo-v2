@@ -200,13 +200,10 @@ if ( ! function_exists( 'wp_indigo_get_custom_category' ) ) :
 endif;
 
 
-
-
 if ( ! function_exists( 'wp_indigo_get_post_date' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
-	
 	function wp_indigo_get_post_date() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
@@ -343,29 +340,58 @@ endif;
 
 if ( ! function_exists( 'wp_indigo_taxonomy_filter' ) ) :
 	/**
-	 *  Return taxonomy filter
+	 *  Return taxonomy filter with (active class)
 	 */
 	function wp_indigo_taxonomy_filter( $wp_indigo_className = "" ,  $wp_indigo_getSeparator = ", " , $wp_indigo_is_limited = false ,  $wp_indigo_taxonomy = "category" , $wp_indigo_hard_limit = false ) {
+		
+		global $wp_query;
+		
 		$taxonomies = get_terms( array(
 			'taxonomy' => $wp_indigo_taxonomy,
 			'hide_empty' => false
 		) );
+		
 		$taxonomny_counter = 0;
 		$separator = $wp_indigo_getSeparator;
+			
+		$wp_indigo_all_active_class = "";
+		if(empty($wp_query->query['portfolio_category'])){
+			$wp_indigo_all_active_class = "active";
+		}
+
+		echo '<a class="'.esc_attr( $wp_indigo_className ).' '.esc_attr( $wp_indigo_all_active_class ).'" href='.site_url().'/'.get_post_type().'>';
+		echo esc_html_e( 'All ', 'wp-indigo' );
+		echo '</a>';
+
 		if ( !empty($taxonomies) ) {
 			$output = '';
+
+
 			foreach( $taxonomies as $category ) {
+
 				if($wp_indigo_is_limited === true && $taxonomny_counter === 4 || $wp_indigo_hard_limit === true && $taxonomny_counter === 1){
 					break;
 				}
+
+				if(!empty($wp_query->query['portfolio_category'])){
+					$current_category = $wp_query->query['portfolio_category'];
+				}			
+				if($category != null && !empty($wp_query->query['portfolio_category'])  && $category->slug  === $current_category){
+					$classactive = "active";
+				}
+				else{
+					$classactive = "";
+				}
+
 				$taxonomny_counter++;
+
 				if ($category->count != 0) {
 					/* translators: return poject_category items for filtering */
-					$output .= '<a class="'.esc_attr($wp_indigo_className).'" href="'. site_url() . '/'. get_post_type().'/?'.$wp_indigo_taxonomy.'=' . esc_html( $category->name ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'wp-indigo' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
+					$output .= '<a class="'.esc_attr($wp_indigo_className). ' ' .esc_attr( $classactive ).'" href="'. site_url() . '/'. get_post_type().'/?'.$wp_indigo_taxonomy.'=' . esc_html( $category->slug ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'wp-indigo' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
 				}
 			}
 			echo wp_kses_post(trim( $output , $separator ));
-		}
+		}		
 	}
 endif;
 
@@ -390,14 +416,17 @@ if ( ! function_exists( 'wp_indigo_category_filter' ) ) :
 		foreach($categories as $category) {
 			$classactive = "";
 			
+			// Check not empty 
 			if(!empty($wp_query->query['category_name'])){
-				$current_category = $wp_query->query['category_name'];
-				$current_category = str_replace('+', ' ', $current_category);
-			}			
-			if($category != null && !empty($wp_query->query['category_name'])  && $category->name  == $current_category){
+				// get current category 
+				$current_category = $wp_query->query['category_name'];				
+			}
+			// Check if current category match with url (and add active class) 
+			if($category != null && !empty($wp_query->query['category_name'])  && $category->slug == $current_category){
 				$classactive = "active";
 			}
-			echo '<a class="'.$wp_indigo_className.' '.$classactive.'" href="'. site_url() . '/blog/?category_name=' . esc_html( $category->name ) . '">' . $category->name . '</a>';
+			// The output
+			echo '<a class="'.$wp_indigo_className.' '.$classactive.'" href="'. site_url() . '/blog/?category_name=' . esc_html( $category->slug ) . '">' . $category->name . '</a>';
 		}
 	}	
 endif;
@@ -416,33 +445,10 @@ if ( ! function_exists( 'wp_indigo_get_taxonomy' ) ) :
         if (is_array($wp_indigo_custom_taxs) && !empty($wp_indigo_custom_taxs)) {
             if( !empty( $wp_indigo_taxonomy_name ) ){
                 foreach ( $wp_indigo_custom_taxs as $tax ) {
-                    $wp_indigo_output .= '<'. esc_html($wp_indigo_tag_name) .' class="'.esc_attr(  $wp_indigo_class_name  ).' " href="'.esc_url( get_tag_link( $tax->term_id ) ).'">' . __( $tax->name ) . '</'. esc_html($wp_indigo_tag_name) .'>'. $wp_indigo_seprator;
+                    $wp_indigo_output .= '<'. esc_html($wp_indigo_tag_name) .' class="'.esc_attr(  $wp_indigo_class_name  ).' " href="'.esc_url( get_tag_link( $tax->term_id ) ).'">' . __( $tax->name ) . '</'. esc_html($wp_indigo_tag_name) .'>';
                 }
-
-				echo wp_kses_post( trim( $wp_indigo_output , $wp_indigo_seprator) );
-
+				echo wp_kses_post($wp_indigo_output  );
             }
         }
-    }
-endif;
-
-
-if ( ! function_exists( 'wp_indigo_get_taxonomy_list' ) ) :
-    /**
-	  * Display Post Tags (Custom taxonomy)
-	  */
-    function wp_indigo_get_taxonomy_list() {
-		
-        $args = array(
-			'type' => 'resource',
-			'orderby' => 'name',
-			'order' => 'ASC'
-		);
-		
-		$categories = get_categories($args);
-		
-		foreach($categories as $category) { 
-			echo '<a class="c-widget__tag h6" href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $category->name ) . '" ' . '>' . $category->name.'</a>';
-		}
     }
 endif;

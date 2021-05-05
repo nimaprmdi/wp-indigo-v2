@@ -13,10 +13,15 @@
 }
 
 .page-numbers.current {
-  margin-right: 26px;
   color: $wp-indigo_quaternary_color;
+  margin-right: 24px;
 }
 
+.next.page-numbers {
+  margin-left: 24px;
+}
+.prev.page-numbers {
+}
 .page-numbers {
   margin: 0px 4px;
   font-family: $wp_indigo_primary_font_light;
