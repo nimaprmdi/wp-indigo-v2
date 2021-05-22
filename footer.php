@@ -27,7 +27,7 @@
                     ?>
                 </h5>
                 <a class="c-footer__link h5 u-link--secondary"
-                    href="<?php echo esc_url( __( 'https://vitathemes.com/', 'wp-indigo' ) ); ?>">
+                    href="<?php echo esc_url('https://vitathemes.com' ) ; ?>">
                     <?php 
                         /* translators: %s: Vita themes is the creator of the theme */
                         printf( esc_html__( 'VitaThemes ', 'wp-indigo' ) );

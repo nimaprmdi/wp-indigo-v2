@@ -43,7 +43,7 @@ if ( ! function_exists( 'wp_indigo_posted_by' ) ) :
 	function wp_indigo_posted_by(  $wp_indigo_custom_class = "" ) {
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( '%s', 'post author', 'wp-indigo' ),
+			esc_html__( 'post author', 'wp-indigo' ),
 			'<span class="author vcard"><a class="'.esc_attr( $wp_indigo_custom_class ).' h6 url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
@@ -218,6 +218,8 @@ if ( ! function_exists( 'wp_indigo_get_custom_category_list' ) ) :
 			
 				foreach( $categories as $category ) {
 					$category_counter++;
+
+					/* translators: %s: View all posts */
 					$output .= '<li class="c-widget__item"><a class="h6 u-letter-space-regular '.esc_attr(  $wp_indigo_custom_class ).'" href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'wp-indigo' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a></li>' ;
 				}
 				echo  wp_kses_post(trim( $output ));
@@ -247,8 +249,7 @@ if ( ! function_exists( 'wp_indigo_get_post_date' ) ) :
 		);
 
 		$posted_on = sprintf(
-			/* translators: %s: post date. */
-			esc_html_x( '%s', 'post date', 'wp-indigo' ),
+			esc_html__( 'post date', 'wp-indigo' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
@@ -347,79 +348,79 @@ if ( ! function_exists( 'wp_indigo_socials_links' ) ) :
 			echo '<div class="c-social-share c-social-share--footer">';
 
 			if ( $wp_indigo_facebook ) {
-				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="dashicons dashicons-facebook-alt"></span></a>', esc_url( $wp_indigo_facebook ), esc_html__( 'Facebook', 'wp_indigo' ) );
+				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="dashicons dashicons-facebook-alt"></span></a>', esc_url( $wp_indigo_facebook ), esc_html__( 'Facebook', 'wp-indigo' ) );
 			}
 
 			if ( $wp_indigo_twitter ) {
-				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="dashicons dashicons-twitter"></span></a>', esc_url( $wp_indigo_twitter ), esc_html__( 'Twitter', 'wp_indigo' ) );
+				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="dashicons dashicons-twitter"></span></a>', esc_url( $wp_indigo_twitter ), esc_html__( 'Twitter', 'wp-indigo' ) );
 			}
 
 			if ( $wp_indigo_instagram ) {
-				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="dashicons dashicons-instagram"></span></a>', esc_url( $wp_indigo_instagram ), esc_html__( 'Instagram', 'wp_indigo' ) );
+				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="dashicons dashicons-instagram"></span></a>', esc_url( $wp_indigo_instagram ), esc_html__( 'Instagram', 'wp-indigo' ) );
 			}
 
 			if ( $wp_indigo_linkedin ) {
-				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="dashicons dashicons-linkedin"></span></a>', esc_url( $wp_indigo_linkedin ), esc_html__( 'Linkedin', 'wp_indigo' ) );
+				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="dashicons dashicons-linkedin"></span></a>', esc_url( $wp_indigo_linkedin ), esc_html__( 'Linkedin', 'wp-indigo' ) );
 			}
 
 			if ( $wp_indigo_github ) {
-				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="ant-design:github-filled" data-inline="false"></span></a>', esc_url( $wp_indigo_github ), esc_html__( 'Github', 'wp_indigo' ) );
+				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="ant-design:github-filled" data-inline="false"></span></a>', esc_url( $wp_indigo_github ), esc_html__( 'Github', 'wp-indigo' ) );
 			}
 
 			if ( $wp_indigo_mail ) {
-				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="ant-design:mail-outlined" data-inline="false"></span></a>', esc_url( $wp_indigo_mail ), esc_html__( 'Mail', 'wp_indigo' ) );
+				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="ant-design:mail-outlined" data-inline="false"></span></a>', esc_url( $wp_indigo_mail ), esc_html__( 'Mail', 'wp-indigo' ) );
 			}
 			
 			if ( $wp_indigo_pinterest ) {
-				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="bx:bxl-pinterest" data-inline="false"></span></a>', esc_url( $wp_indigo_pinterest ), esc_html__( 'pinterest', 'wp_indigo' ) );
+				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="bx:bxl-pinterest" data-inline="false"></span></a>', esc_url( $wp_indigo_pinterest ), esc_html__( 'pinterest', 'wp-indigo' ) );
 			}
 
 			if ( $wp_indigo_youtube ) {
-				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="akar-icons:youtube-fill" data-inline="false"></span></a>', esc_url( $wp_indigo_youtube ), esc_html__( 'youtube', 'wp_indigo' ) );
+				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="akar-icons:youtube-fill" data-inline="false"></span></a>', esc_url( $wp_indigo_youtube ), esc_html__( 'youtube', 'wp-indigo' ) );
 			}
 			
 			if ( $wp_indigo_spotify ) {
-				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="bx:bxl-spotify" data-inline="false"></span></a>', esc_url( $wp_indigo_spotify ), esc_html__( 'spotify', 'wp_indigo' ) );
+				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="bx:bxl-spotify" data-inline="false"></span></a>', esc_url( $wp_indigo_spotify ), esc_html__( 'spotify', 'wp-indigo' ) );
 			}
 			
 			if ( $wp_indigo_lastfm ) {
-				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="brandico:lastfm-rect" data-inline="false"></span></a>', esc_url( $wp_indigo_lastfm ), esc_html__( 'lastfm', 'wp_indigo' ) );
+				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="brandico:lastfm-rect" data-inline="false"></span></a>', esc_url( $wp_indigo_lastfm ), esc_html__( 'lastfm', 'wp-indigo' ) );
 			}
 
 			if ( $wp_indigo_gitlab ) {
-				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="ion:logo-gitlab" data-inline="false"></span></a>', esc_url( $wp_indigo_gitlab ), esc_html__( 'gitlab', 'wp_indigo' ) );
+				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="ion:logo-gitlab" data-inline="false"></span></a>', esc_url( $wp_indigo_gitlab ), esc_html__( 'gitlab', 'wp-indigo' ) );
 			}
 			
 			if ( $wp_indigo_stackoverflow ) {
-				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="cib:stackoverflow" data-inline="false"></span></a>', esc_url( $wp_indigo_stackoverflow ), esc_html__( 'stackoverflow', 'wp_indigo' ) );
+				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="cib:stackoverflow" data-inline="false"></span></a>', esc_url( $wp_indigo_stackoverflow ), esc_html__( 'stackoverflow', 'wp-indigo' ) );
 			}
 
 			if ( $wp_indigo_reddit ) {
-				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="akar-icons:reddit-fill" data-inline="false"></span></a>', esc_url( $wp_indigo_reddit ), esc_html__( 'reddit', 'wp_indigo' ) );
+				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="akar-icons:reddit-fill" data-inline="false"></span></a>', esc_url( $wp_indigo_reddit ), esc_html__( 'reddit', 'wp-indigo' ) );
 			}
 			
 			if ( $wp_indigo_quora ) {
-				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="bx:bxl-quora" data-inline="false"></span></a>', esc_url( $wp_indigo_quora ), esc_html__( 'quora', 'wp_indigo' ) );
+				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="bx:bxl-quora" data-inline="false"></span></a>', esc_url( $wp_indigo_quora ), esc_html__( 'quora', 'wp-indigo' ) );
 			}
 
 			if ( $wp_indigo_medium ) {
-				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="ant-design:medium-circle-filled" data-inline="false"></span></a>', esc_url( $wp_indigo_medium ), esc_html__( 'medium', 'wp_indigo' ) );
+				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="ant-design:medium-circle-filled" data-inline="false"></span></a>', esc_url( $wp_indigo_medium ), esc_html__( 'medium', 'wp-indigo' ) );
 			}			
 
 			if ( $wp_indigo_vimeo ) {
-				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="brandico:vimeo-rect" data-inline="false"></span></a>', esc_url( $wp_indigo_vimeo ), esc_html__( 'vimeo', 'wp_indigo' ) );
+				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="brandico:vimeo-rect" data-inline="false"></span></a>', esc_url( $wp_indigo_vimeo ), esc_html__( 'vimeo', 'wp-indigo' ) );
 			}
 
 			if ( $wp_indigo_dribbble ) {
-				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="akar-icons:dribbble-fill" data-inline="false"></span></a>', esc_url( $wp_indigo_dribbble ), esc_html__( 'dribbble', 'wp_indigo' ) );
+				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="akar-icons:dribbble-fill" data-inline="false"></span></a>', esc_url( $wp_indigo_dribbble ), esc_html__( 'dribbble', 'wp-indigo' ) );
 			}
 
 			if ( $wp_indigo_behance ) {
-				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="ant-design:behance-outlined" data-inline="false"></span></a>', esc_url( $wp_indigo_behance ), esc_html__( 'behance', 'wp_indigo' ) );
+				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="ant-design:behance-outlined" data-inline="false"></span></a>', esc_url( $wp_indigo_behance ), esc_html__( 'behance', 'wp-indigo' ) );
 			}
 
 			if ( $wp_indigo_lanyrd ) {
-				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="cib:lanyrd" data-inline="false"></span></a>', esc_url( $wp_indigo_lanyrd ), esc_html__( 'lanyrd', 'wp_indigo' ) );
+				echo sprintf( '<a href="%s" aria-label="%s" class="c-social-share__item" target="_blank"><span class="iconify" data-icon="cib:lanyrd" data-inline="false"></span></a>', esc_url( $wp_indigo_lanyrd ), esc_html__( 'lanyrd', 'wp-indigo' ) );
 			}
 
 			echo '</div>';
@@ -491,7 +492,7 @@ if ( ! function_exists( 'wp_indigo_taxonomy_filter' ) ) :
 			$wp_indigo_all_active_class = "active";
 		}
 
-		echo '<a class="'.esc_attr( $wp_indigo_className ).' '.esc_attr( $wp_indigo_all_active_class ).'" href='.site_url().'/'.get_post_type().'>';
+		echo '<a class="'.esc_attr( $wp_indigo_className ).' '.esc_attr( $wp_indigo_all_active_class ).'" href='.esc_url(site_url().'/'.get_post_type()).'>';
 		echo esc_html_e( 'All ', 'wp-indigo' );
 		echo '</a>';
 
@@ -541,7 +542,7 @@ if ( ! function_exists( 'wp_indigo_category_filter' ) ) :
 			$wp_indigo_all_active_class = "active";
 		}
 		
-		echo '<a class="'.esc_attr( $wp_indigo_className ).' '.esc_attr( $wp_indigo_all_active_class ).'" href='.site_url().'/blog>';
+		echo '<a class="'.esc_attr( $wp_indigo_className ).' '.esc_attr( $wp_indigo_all_active_class ).'" href='.esc_url(site_url()).'/blog>';
 		echo esc_html_e( 'All ', 'wp-indigo' );
 		echo '</a>';
 		
@@ -558,7 +559,7 @@ if ( ! function_exists( 'wp_indigo_category_filter' ) ) :
 				$classactive = "active";
 			}
 			// The output
-			echo '<a class="'.$wp_indigo_className.' '.$classactive.'" href="'. site_url() . '/blog/?category_name=' . esc_html( $category->slug ) . '">' . $category->name . '</a>';
+			echo '<a class="'.esc_attr( $wp_indigo_className.' '.$classactive ).'" href="'.esc_url(site_url()) . '/blog/?category_name=' . esc_html( $category->slug ) . '">' . esc_html($category->name) . '</a>';
 		}
 	}	
 endif;
@@ -576,8 +577,8 @@ if ( ! function_exists( 'wp_indigo_get_taxonomy' ) ) :
 
         if (is_array($wp_indigo_custom_taxs) && !empty($wp_indigo_custom_taxs)) {
             if( !empty( $wp_indigo_taxonomy_name ) ){
-                foreach ( $wp_indigo_custom_taxs as $tax ) {
-                    $wp_indigo_output .= '<'. esc_html($wp_indigo_tag_name) .' class="'.esc_attr(  $wp_indigo_class_name  ).' " href="'.esc_url( get_tag_link( $tax->term_id ) ).'">' . __( $tax->name ) . '</'. esc_html($wp_indigo_tag_name) .'>';
+                foreach ( $wp_indigo_custom_taxs as $wp_indigo_custom_tax ) {
+                    $wp_indigo_output .= '<'. esc_html($wp_indigo_tag_name) .' class="'.esc_attr(  $wp_indigo_class_name  ).' " href="'.esc_url( get_tag_link( $wp_indigo_custom_tax->term_id ) ).'">' . esc_html( $wp_indigo_custom_tax->name ) . '</'. esc_html($wp_indigo_tag_name) .'>';
                 }
 				echo wp_kses_post($wp_indigo_output  );
             }

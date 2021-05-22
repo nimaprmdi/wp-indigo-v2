@@ -69,9 +69,9 @@ if ( post_password_required() ) {
             <?php
 			$wp_indigo_comment_count = get_comments_number();
 			if ( '1' === $wp_indigo_comment_count ) {
-				echo __( "Comment", "wp-indigo" );
+				echo esc_html__( "Comment", "wp-indigo" );
 			} else {
-				echo __( "Comments", "wp-indigo" );
+				echo esc_html__( "Comments", "wp-indigo" );
 			}
 			?>
         </h2><!-- .comments-title -->

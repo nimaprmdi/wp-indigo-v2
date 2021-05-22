@@ -1864,6 +1864,9 @@ input[type="checkbox"]:checked:before {
 .comment-content p {
   margin: 0px; }
 
+.bypostauthor {
+  text-transform: capitalize; }
+
 .comment-author {
   display: inline-block;
   padding-right: 29px; }
@@ -1906,7 +1909,6 @@ input[type="checkbox"]:checked:before {
   width: 260px;
   margin-left: 65px;
   display: none;
-  opacity: 0;
   animation-name: fadeIn;
   animation-duration: 1s;
   animation-delay: 0.8s;

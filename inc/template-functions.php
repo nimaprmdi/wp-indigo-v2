@@ -80,7 +80,6 @@ function wp_indigo_typography() {
 	}
 
 
-
 	$html = ':root {	
 	            --wp_indigo_primary-color: '.$wp_indigo_primary_color.';
 	            --wp_indigo_secondary-color: '.$wp_indigo_secondary_color.';
@@ -143,23 +142,26 @@ add_action('wp_enqueue_scripts', 'wp_indigo_dashicons', 999);
 
 
 
+if( true == get_theme_mod( 'portfolios_control', true ) ) {
+  /**
+	* Check if portfolios Part is activated
+	*/
 
-/**
-  * Modify LibWP post type name (If libwp plugin exist)
-  */
+
   function wp_indigo_modify_libwp_post_type($postTypeName){
+  /**
+    * Modify LibWP post type name (If libwp plugin exist)
+    */
 	$postTypeName = 'portfolios';
 	return $postTypeName;
   }  
-  
   add_filter('libwp_post_type_1_name', 'wp_indigo_modify_libwp_post_type');
+
   
-  
+  function wp_indigo_modify_libwp_post_type_argument($postTypeArguments){  
   /**
 	* Modify LibWP post type arguments (If libwp plugin exist)
 	*/
-  function wp_indigo_modify_libwp_post_type_argument($postTypeArguments){
-	
 	$postTypeArguments['labels'] = [
 		'name'          => _x('Portfolios', 'Post type general name', 'wp-indigo'),
 		'singular_name' => _x('Portfolio', 'Post type singular name', 'wp-indigo'),
@@ -190,11 +192,11 @@ add_action('wp_enqueue_scripts', 'wp_indigo_dashicons', 999);
   add_filter('libwp_post_type_1_arguments', 'wp_indigo_modify_libwp_post_type_argument');
   
   
-  /**
+
+  function wp_indigo_modify_libwp_taxonomy_name($taxonomyName){
+    /**
 	* Modify LibWP taxonomy name (If libwp plugin exist)
 	*/
-  function wp_indigo_modify_libwp_taxonomy_name($taxonomyName){
-  
 	$taxonomyName = 'portfolio_category';
 	return $taxonomyName;
 	
@@ -202,21 +204,22 @@ add_action('wp_enqueue_scripts', 'wp_indigo_dashicons', 999);
   add_filter('libwp_taxonomy_1_name', 'wp_indigo_modify_libwp_taxonomy_name');
   
   
+  
+  function wp_indigo_modify_libwp_taxonomy_post_type_name($taxonomyPostTypeName){
   /**
 	* Modify LibWP taxonomy post type name (If libwp plugin exist)
 	*/
-  function wp_indigo_modify_libwp_taxonomy_post_type_name($taxonomyPostTypeName){
 	$taxonomyPostTypeName = 'portfolios';
 	return $taxonomyPostTypeName;
   }
   add_filter('libwp_taxonomy_1_post_type', 'wp_indigo_modify_libwp_taxonomy_post_type_name');
   
   
+
+  function wp_indigo_modify_libwp_taxonomy_argument($taxonomyArguments){
   /**
 	* Modify LibWP taxonomy name (If libwp plugin exist)
 	*/
-  function wp_indigo_modify_libwp_taxonomy_argument($taxonomyArguments){
-  
 	  $taxonomyArguments['labels'] = [
 		'name'          => _x('Portfolio Categories', 'taxonomy general name', 'wp-indigo'),
 		'singular_name' => _x('Portfolio Category', 'taxonomy singular name', 'wp-indigo'),
@@ -235,3 +238,5 @@ add_action('wp_enqueue_scripts', 'wp_indigo_dashicons', 999);
   }
   
 add_filter('libwp_taxonomy_1_arguments', 'wp_indigo_modify_libwp_taxonomy_argument');
+
+}

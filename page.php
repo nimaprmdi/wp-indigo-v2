@@ -18,7 +18,7 @@ get_header();
 <main id="primary" class="c-main site-main">
 
     <header class="c-main__header">
-        <h1 class="c-main__page-title"><?php echo get_the_title(); ?></h1>
+        <h1 class="c-main__page-title"><?php echo esc_html(get_the_title()); ?></h1>
     </header>
 
     <section class="c-main__content c-main__content--page">

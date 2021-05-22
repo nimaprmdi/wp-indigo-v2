@@ -6,7 +6,6 @@
   margin-left: 65px;
   display: none;
 
-  opacity: 0;
   animation-name: fadeIn;
   animation-duration: 1s;
   animation-delay: 0.8s;
@@ -32,15 +31,14 @@
     position: absolute;
     right: -12px;
     top: -6px;
-    background: url("https://api.iconify.design/bx:bx-search-alt-2.svg") no-repeat
-      center center / contain;
+    background: url("https://api.iconify.design/bx:bx-search-alt-2.svg") no-repeat center center / contain;
 
     background-size: 20px;
 
     &:hover {
       background-color: transparent;
-      background: url("https://api.iconify.design/bx:bx-search-alt-2.svg?color=%233f51b5")
-        no-repeat center center / contain;
+      background: url("https://api.iconify.design/bx:bx-search-alt-2.svg?color=%233f51b5") no-repeat center center /
+        contain;
       background-size: 20px;
     }
 

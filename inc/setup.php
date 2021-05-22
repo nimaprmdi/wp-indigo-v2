@@ -94,6 +94,8 @@ if ( ! function_exists( 'wp_indigo_setup' ) ) :
 				'flex-height' => true,
 			)
 		);
+
+		remove_theme_support( 'custom-header' );
 	}
 endif;
 add_action( 'after_setup_theme', 'wp_indigo_setup' );

@@ -435,8 +435,8 @@ if( function_exists( 'kirki' ) ) {
 		'label'       => esc_html__( 'H3', 'wp-indigo' ),
 		'section'     => 'typography_size',
 		'default'     => [
-			'line-height'     	  => '24px',
 			'font-size'			  => '16px',
+			'line-height'     	  => '24px',
 		],
 		'priority'    => 12,
 		'transport'   => 'auto',
@@ -455,8 +455,8 @@ if( function_exists( 'kirki' ) ) {
 		'label'       => esc_html__( 'H4', 'wp-indigo' ),
 		'section'     => 'typography_size',
 		'default'     => [
-			'line-height'     	  => '27px',
 			'font-size'			  => '16px',
+			'line-height'     	  => '27px',
 		],
 		'priority'    => 12,
 		'transport'   => 'auto',
@@ -475,8 +475,8 @@ if( function_exists( 'kirki' ) ) {
 		'label'       => esc_html__( 'H5', 'wp-indigo' ),
 		'section'     => 'typography_size',
 		'default'     => [
-			'line-height'     	  => '16px',
 			'font-size'			  => '13px',
+			'line-height'     	  => '16px',
 		],
 		'priority'    => 12,
 		'transport'   => 'auto',
@@ -495,8 +495,8 @@ if( function_exists( 'kirki' ) ) {
 		'label'       => esc_html__( 'H6', 'wp-indigo' ),
 		'section'     => 'typography_size',
 		'default'     => [
-			'line-height'     	  => '13px',
-			'font-size'			  => '21px',
+			'font-size'			  => '13px',
+			'line-height'     	  => '21px',
 		],
 		'priority'    => 12,
 		'transport'   => 'auto',
@@ -507,7 +507,6 @@ if( function_exists( 'kirki' ) ) {
 		],
 	] );
 
-	
 	// Headings typography p
 	Kirki::add_field( 'wp_indigo_theme' , [
 		'type'        => 'typography',
@@ -515,8 +514,8 @@ if( function_exists( 'kirki' ) ) {
 		'label'       => esc_html__( 'p', 'wp-indigo' ),
 		'section'     => 'typography_size',
 		'default'     => [
-			'line-height'     	  => '27px',
 			'font-size'			  => '16px',
+			'line-height'     	  => '27px',
 		],
 		'priority'    => 12,
 		'transport'   => 'auto',
@@ -556,4 +555,15 @@ if( function_exists( 'kirki' ) ) {
 		'default'     => '1',
 		'priority'    => 10,
 	] );
+
+	// Control for portfolio Area Checkbox
+	Kirki::add_field( 'wp_indigo_theme', [
+		'type'        => 'toggle',
+		'settings'    => 'portfolios_control',
+		'label'       => esc_html__( 'Portfolios section control', 'wp-indigo' ),
+		'section'     => 'elements',
+		'default'     => '1',
+		'priority'    => 11,
+	] );
+	
 }
