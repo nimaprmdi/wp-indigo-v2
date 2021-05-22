@@ -18,7 +18,7 @@ if ( ! function_exists( 'wp_indigo_branding' ) ) :
 		
 		?>
 <h1 class="c-header__title site-title">
-    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php esc_html(bloginfo( 'name' )); ?></a>
 </h1>
 <?php 
 		

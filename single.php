@@ -20,6 +20,7 @@ get_header();
 
 			get_template_part( 'template-parts/content', 'single' );
 
+			// Display Side bar if current page was not a single of portfolios
 			if ('portfolios' != get_post_type()) get_sidebar();
 			
 		endwhile;// End of the loop.	

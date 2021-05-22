@@ -22,14 +22,14 @@
     <!-- Get the page thumbnail -->
     <div class="c-single__entry-content">
         <?php
-		the_content();
+			the_content();
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wp-indigo' ),
-				'after'  => '</div>',
-			)
-		);
+			wp_link_pages(
+				array(
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wp-indigo' ),
+					'after'  => '</div>',
+				)
+			);
 		?>
     </div><!-- .entry-content -->
 

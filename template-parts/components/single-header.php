@@ -42,8 +42,8 @@
                 </span>
             </div><!-- c-single__date -->
 
-        </div>
+        </div><!-- c-single__entry-meta -->
 
-    </div><!-- c-single__entry-meta -->
+    </div><!-- c-single__entry-header__content -->
 
 </section><!-- c-single__entry-header -->

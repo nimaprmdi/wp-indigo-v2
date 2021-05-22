@@ -20,7 +20,7 @@
 
     <div class="c-profile__title">
         <a class="c-profile__title__link h1" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-            <?php bloginfo( 'name' ); ?>
+            <?php esc_html(bloginfo( 'name' )); ?>
         </a>
     </div>
 

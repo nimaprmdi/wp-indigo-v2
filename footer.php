@@ -33,7 +33,7 @@
                         printf( esc_html__( 'VitaThemes ', 'wp-indigo' ) );
                     ?>
                 </a>
-                <span class="u-seprator"> | </span>
+                <span class="u-seprator"> <?php esc_html( '|' ) ?></span>
                 <a class="c-footer__link h5 u-link--secondary"
                     href="<?php echo esc_url( get_privacy_policy_url() ); ?>">
 

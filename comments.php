@@ -24,18 +24,17 @@ if ( post_password_required() ) {
 <div id="comments" class="comments-area">
 
     <?php
-	
 	//Custom comment form 
 	$comments_args = array(
 		//Define Fields
 		'fields' => array(
 						
 			// Author field
-			'author' => '<p class="comment-form-author h5 u-letter-space-small">Name*<br /><input type="text" id="author" name="author" aria-required="true" required></input></p>',
+			'author' => '<p class="comment-form-author h5 u-letter-space-small">'. __( 'Name*', 'wp-indigo' ).'<br /><input type="text" id="author" name="author" aria-required="true" required></input></p>',
 			// Email Field
-			'email' => '<p class="comment-form-email h5 u-letter-space-small">Email*<br /><input type="email" id="email" name="email" required></input></p>',
+			'email' => '<p class="comment-form-email h5 u-letter-space-small">'. __( 'Email*', 'wp-indigo' ).'<br /><input type="email" id="email" name="email" required></input></p>',
 			// URL Field
-			'url' => '<p class="comment-form-url h5 u-letter-space-small">Website<br /><input type="url" id="url" name="url" required></input></p>',
+			'url' => '<p class="comment-form-url h5 u-letter-space-small">'. __( 'Website', 'wp-indigo' ).'<br /><input type="url" id="url" name="url" required></input></p>',
 			// Cookies
 			'cookies' => '<div class="c-comment__cookie"><input type="checkbox" name="wp-comment-cookies-consent" required><span class="c-comments__cookie h5 u-letter-space-small">' . __(' Save my name, email, and website in this browser for the next time I comment', 'wp-indigo' ) .'</span></div>',
 			
@@ -49,7 +48,7 @@ if ( post_password_required() ) {
 		//Cancel Reply Text
 		'cancel_reply_link' =>	'<p class="h4 u-link--secondary">'.__( 'Cancel Reply', 'wp-indigo' ).'</p>',
 		// Redefine your own textarea (the comment body).
-		'comment_field' => '<p class="comment-form-comment h5 u-letter-space-small">Comment*<br /><textarea id="comment" name="comment" aria-required="true" ></textarea></p>',
+		'comment_field' => '<p class="comment-form-comment h5 u-letter-space-small">'. __( 'Comment*', 'wp-indigo' ).'<br /><textarea id="comment" name="comment" aria-required="true" ></textarea></p>',
 		//Message Before Comment
 		'comment_notes_before' =>'<p class="c-comments__desc h5 u-letter-space-small">'. __( 'Your email address will not be published. Required fields are marked *' , 'wp-indigo') .'</p>',
 		// Remove "Text or HTML to be displayed after the set of comment fields".

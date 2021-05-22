@@ -190,7 +190,7 @@ if ( ! function_exists( 'wp_indigo_get_custom_category' ) ) :
 		
 					$category_counter++;
 					/* translators: used between list items, there is a space after the comma */
-					$output .= '<a class="'.esc_attr(  $wp_indigo_custom_class ).'" href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'wp-indigo' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
+					$output .= '<a class="'.esc_attr(  $wp_indigo_custom_class ).'" href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'wp-indigo' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . esc_html($separator);
 				}
 				echo  wp_kses_post(trim( $output, $separator ));
 			}
@@ -330,11 +330,13 @@ if ( ! function_exists( 'wp_indigo_socials_links' ) ) :
 		$wp_indigo_behance    		=  get_theme_mod( 'behance', "" );
 
 
+		// If variable was not empty will display the icons
 		$wp_indigo_social_variables  = array($wp_indigo_facebook,$wp_indigo_twitter,$wp_indigo_instagram,$wp_indigo_linkedin,$wp_indigo_github,
 		$wp_indigo_mail, $wp_indigo_pinterest ,$wp_indigo_youtube ,$wp_indigo_spotify , $wp_indigo_gitlab,$wp_indigo_lastfm ,$wp_indigo_stackoverflow ,$wp_indigo_quora ,$wp_indigo_reddit ,$wp_indigo_medium ,
 		$wp_indigo_vimeo, $wp_indigo_lanyrd,$wp_indigo_dribbble ,$wp_indigo_behance
 		) ;
 
+		// Check if one of the variables are not empty 
 		$wp_indigo_social_variable_flag = 0;		
 		foreach($wp_indigo_social_variables as $wp_indigo_social){
 			if( !empty($wp_indigo_social)){
@@ -343,6 +345,7 @@ if ( ! function_exists( 'wp_indigo_socials_links' ) ) :
 			}
 		}
 
+		// Display the icons here 
 		if( $wp_indigo_social_variable_flag === 1 ) {
 
 			echo '<div class="c-social-share c-social-share--footer">';
@@ -446,7 +449,7 @@ endif;
 
 if (! function_exists('wp_indigo_get_home_section_close_tag')) :
 	/**
-	 * Add class depend on page
+	 * Add tag depend on page
 	 */
 	function wp_indigo_get_home_section_close_tag() {
 		if ( is_page_template( 'page-template/home.php' || is_404() ) ) {
@@ -499,7 +502,6 @@ if ( ! function_exists( 'wp_indigo_taxonomy_filter' ) ) :
 		if ( !empty($taxonomies) ) {
 			$output = '';
 
-
 			foreach( $taxonomies as $category ) {
 
 				if($wp_indigo_is_limited === true && $taxonomny_counter === 4 || $wp_indigo_hard_limit === true && $taxonomny_counter === 1){
@@ -520,7 +522,7 @@ if ( ! function_exists( 'wp_indigo_taxonomy_filter' ) ) :
 
 				if ($category->count != 0) {
 					/* translators: return poject_category items for filtering */
-					$output .= '<a class="'.esc_attr($wp_indigo_className). ' ' .esc_attr( $classactive ).'" href="'. site_url() . '/'. get_post_type().'/?'.$wp_indigo_taxonomy.'=' . esc_html( $category->slug ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'wp-indigo' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
+					$output .= '<a class="'.esc_attr($wp_indigo_className). ' ' .esc_attr( $classactive ).'" href="'. esc_url( site_url() . '/'. get_post_type().'/?'.$wp_indigo_taxonomy.'=' . esc_html( $category->slug ) ). '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'wp-indigo' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . esc_html($separator);
 				}
 			}
 			echo wp_kses_post(trim( $output , $separator ));
@@ -580,7 +582,7 @@ if ( ! function_exists( 'wp_indigo_get_taxonomy' ) ) :
                 foreach ( $wp_indigo_custom_taxs as $wp_indigo_custom_tax ) {
                     $wp_indigo_output .= '<'. esc_html($wp_indigo_tag_name) .' class="'.esc_attr(  $wp_indigo_class_name  ).' " href="'.esc_url( get_tag_link( $wp_indigo_custom_tax->term_id ) ).'">' . esc_html( $wp_indigo_custom_tax->name ) . '</'. esc_html($wp_indigo_tag_name) .'>';
                 }
-				echo wp_kses_post($wp_indigo_output  );
+				echo wp_kses_post($wp_indigo_output);
             }
         }
     }
