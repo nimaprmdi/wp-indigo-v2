@@ -48,6 +48,12 @@
     width: 100%;
     text-align: center;
   }
+
+  .c-post__cat {
+    &::before {
+      content: "";
+    }
+  }
 }
 
 .c-post__link {
@@ -94,6 +100,7 @@
   margin: 0px;
   max-width: 100%;
   color: $color_background_body;
+  text-transform: capitalize;
 
   @include media(tablet) {
     display: block;
@@ -166,5 +173,13 @@
   span {
     letter-spacing: 0.05em;
     text-transform: uppercase;
+  }
+
+  a {
+    color: $wp_indigo_secondary_color;
+
+    &:hover {
+      color: $wp-indigo_quaternary_color;
+    }
   }
 }

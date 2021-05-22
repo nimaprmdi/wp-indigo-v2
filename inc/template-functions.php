@@ -51,37 +51,46 @@ function wp_indigo_typography() {
 	} else {
 		$wp_indigo_secondary_color = get_theme_mod( 'typography_secondary_color' );
 	}
-	if ( get_theme_mod( 'wp_indigo_tertiary-color' ) == "" ) {
+	if ( get_theme_mod( 'wp_indigo_tertiary_color' ) == "" ) {
 		$wp_indigo_tertiary_color = "#C4C4C4";
 	} else {
-		$wp_indigo_tertiary_color = get_theme_mod( 'wp_indigo_tertiary-color' );
+		$wp_indigo_tertiary_color = get_theme_mod( 'wp_indigo_tertiary_color' );
 	}
-	if ( get_theme_mod( 'wp_indigo_quaternary-color' ) == "" ) {
+	if ( get_theme_mod( 'wp_indigo_quaternary_color' ) == "" ) {
 		$wp_indigo_quaternary_color = "#3F51B5";
 	} else {
-		$wp_indigo_quaternary_color = get_theme_mod( 'wp_indigo_quaternary-color' );
+		$wp_indigo_quaternary_color = get_theme_mod( 'wp_indigo_quaternary_color' );
 	}
 	
-	/** Font Family */
-	if ( get_theme_mod( 'wp_indigo_heading_typography' ) == "" ) {
-		$wp_indigo_headings_font = "overpass-light";
+	/* Font Family */
+	if ( get_theme_mod( 'typography_headings_font' ) == "" ) {
+		$wp_indigo_headings_font['font-family'] = "overpass";
 	} else {
-		$wp_indigo_headings_font = get_theme_mod( 'wp_indigo_heading_typography-color' );
+		$wp_indigo_headings_font = get_theme_mod( 'typography_headings_font' );
 	}
-	if ( get_theme_mod( 'wp_indigo_texts_typography' ) == "" ) {
-		$wp_indigo_text_color = "sourceserifpro-regular";
+	if ( get_theme_mod( 'typography_texts_font' ) == "" ) {
+		$wp_indigo_texts_font['font-family'] = "sourceserifpro-regular";
 	} else {
-		$wp_indigo_text_color = get_theme_mod( 'wp_indigo_texts_typography-color' );
+		$wp_indigo_texts_font = get_theme_mod( 'typography_texts_font' );
 	}
+	if ( get_theme_mod( 'typography_text_secondary_font' ) == "" ) {
+		$wp_indigo_texts_secondary_font['font-family'] = "overpass-light";
+	} else {
+		$wp_indigo_texts_secondary_font = get_theme_mod( 'typography_text_secondary_font' );
+	}
+
+
 
 	$html = ':root {	
 	            --wp_indigo_primary-color: '.$wp_indigo_primary_color.';
 	            --wp_indigo_secondary-color: '.$wp_indigo_secondary_color.';
-				--wp_indigo_tertiary-color: '.$wp_indigo_tertiary_color.';
-				--wp_indigo_quaternary-color: '.$wp_indigo_quaternary_color.';
+				--wp_indigo_tertiary_color: '.$wp_indigo_tertiary_color.';
+				--wp_indigo_quaternary_color: '.$wp_indigo_quaternary_color.';
 
-				--wp_indigo_headings_font: '. $wp_indigo_headings_font .';
-				--wp_indigo_texts_font: '. $wp_indigo_text_color .';
+                --wp_indigo_headings_font: '. $wp_indigo_headings_font["font-family"] .';
+				--wp_indigo_texts_font: '. $wp_indigo_texts_font["font-family"] .';
+				--wp_indigo_texts_secondary_font: '. $wp_indigo_texts_secondary_font["font-family"] .';
+
 			}';
 			
 	return $html;

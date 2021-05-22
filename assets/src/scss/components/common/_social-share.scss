@@ -1,14 +1,12 @@
-/*------------------------------------*\
+/*---------------------------------*\
   #Social Share
-\*------------------------------------*/
+\*---------------------------------*/
 .c-social-share {
   width: 100%;
   display: flex;
   justify-content: center;
-}
-
-.c-social-share--footer {
-  padding-bottom: 35px;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .c-social-share__title {

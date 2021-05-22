@@ -15,9 +15,7 @@
 
     <div class="c-footer__wrapper">
 
-        <div class="c-social-share c-social-share--footer">
-            <?php wp_indigo_socials_links( false ); ?>
-        </div>
+        <?php wp_indigo_socials_links( false ); ?>        
 
         <div class="c-footer__content">
 

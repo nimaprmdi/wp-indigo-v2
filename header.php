@@ -35,10 +35,7 @@
                     <?php wp_indigo_branding(); ?>
                 </div>
 
-                <button class="c-header__menu js-header__menu"
-                    aria-label="<?php esc_attr_e('Primary menu', 'wp-indigo'); ?>" aria-controls="primary-menu"
-                    aria-expanded="false">
-
+                <button class="c-header__menu js-header__menu" aria-label="<?php esc_attr_e('Primary menu', 'wp-indigo'); ?>" aria-controls="primary-menu" aria-expanded="false">
                     <div class="c-header__menu__icon">
                         <div class="hamburger"></div>
                     </div>
@@ -60,7 +57,6 @@
                         ?>
                 </nav><!-- #site-navigation -->
 
-            </div>
-            <!--c-header__main -->
+            </div><!--c-header__main -->
 
         </header><!-- #masthead -->

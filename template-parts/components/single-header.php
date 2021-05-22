@@ -20,9 +20,11 @@
             ?>
 
             <div class="c-single__author">
+                <?php  if(get_avatar( get_current_user_id() ) ) : ?>
                 <div class="c-single__author__avatar">
                     <?php echo get_avatar( get_the_author_meta('user_email'), '80', '' ); ?>
                 </div>
+                <?php endif; ?>
                 <div class="c-single__author__info">
                     <?php wp_indigo_posted_by("c-single__author__link"); ?>
                 </div>

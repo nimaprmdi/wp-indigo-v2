@@ -45,14 +45,6 @@
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 0px;
-
-  a {
-    color: $wp-indigo_primary_color;
-
-    &:hover {
-      color: $wp-indigo_quaternary_color;
-    }
-  }
 }
 
 .c-header__menu {
@@ -73,6 +65,10 @@
   &:active,
   &:focus {
     background-color: transparent;
+  }
+
+  &:focus {
+    border: 1px solid $wp-indigo_neutral_gray_light_color;
   }
 }
 

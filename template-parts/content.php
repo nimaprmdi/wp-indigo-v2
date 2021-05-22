@@ -29,8 +29,8 @@
         </div><!-- c-post__entry-meta -->
 
         <div class="c-post__date">
-            <span class="h6">
-                <a href="<?php echo esc_url( get_permalink() ) ?>" rel="bookmark">
+            <span>
+                <a class="h6" href="<?php echo esc_url( get_permalink() ) ?>" rel="bookmark">
                     <?php echo esc_html( get_the_date( "M d, Y" ) ) ?>
                 </a>
             </span>

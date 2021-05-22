@@ -31,6 +31,7 @@ class Wp_indigo_walker_comment extends Walker_Comment
     <article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
         <div class="comment-meta">
 
+            <?php if ($args['avatar_size'] !== 0) echo get_avatar($comment, $args['avatar_size']); ?>
 
             <div class="comment-content">
                 <div class="comment-header">
@@ -66,7 +67,7 @@ class Wp_indigo_walker_comment extends Walker_Comment
 					comment_reply_link([
 						'add_below'     => 'div-comment',
 						'depth'         => $depth,
-						'max_depth'     => $args['max_depth']
+						'max_depth'     => $args['max_depth'],
 					]);
 					?>
                 </div>

@@ -4,6 +4,9 @@
 .comments-area {
   width: 555px;
   max-width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
 }
 .comment {
   margin-top: 30px;
@@ -38,6 +41,7 @@
 
 .comment-respond {
   margin-top: 64px;
+  width: 100%;
 }
 
 .c-comments__title--primary {
@@ -69,9 +73,21 @@
   margin-top: 26px;
   padding-left: 0px;
   list-style-type: none;
+  width: 100%;
 
   @include media(tablet) {
     margin-top: 0px;
+  }
+}
+
+.comment-meta {
+  display: flex;
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin-right: 16px;
   }
 }
 
@@ -92,6 +108,13 @@
 
 .comment-author-name {
   letter-spacing: 0.03em;
+  text-transform: capitalize;
+}
+
+.comment-reply-link {
+  font-size: 16px;
+  line-height: 27px;
+  font-family: $wp_indigo_secondary_font_regular;
 }
 
 .comment-time {
@@ -117,4 +140,5 @@
 
 #cancel-comment-reply-link {
   letter-spacing: 0px;
+  margin-top: 16px;
 }

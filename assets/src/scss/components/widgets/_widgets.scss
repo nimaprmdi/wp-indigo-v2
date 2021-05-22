@@ -70,7 +70,7 @@
     padding-left: 0px;
     margin-left: 0px;
 
-    font-family: $wp_indigo_headings_font;
+    font-family: $wp_indigo_texts_secondary_font;
   }
 
   li {
@@ -89,5 +89,34 @@
 
   &:before {
     content: "#";
+  }
+}
+
+.c-widget__item {
+  color: $wp_indigo_secondary_color;
+  display: inline-block;
+  margin-right: 4px;
+}
+.c-widget__item__link {
+  color: $wp_indigo_secondary_color;
+
+  &:hover {
+    color: $wp-indigo_quaternary_color;
+  }
+
+  &::before {
+    content: "#";
+  }
+}
+
+/* WordPress Default Widget ( category ) */
+
+.widget {
+  a {
+    color: $wp_indigo_secondary_color;
+
+    &:hover {
+      color: $wp-indigo_quaternary_color;
+    }
   }
 }

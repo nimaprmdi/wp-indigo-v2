@@ -1,7 +1,7 @@
 === WP Indigo v2 ===
 Contributors: vitathemes, veronalabs, kashani, mrmolaei, mostafas1990, nimaprmi
 Requires at least: 5.0
-Tested up to: 5.7.1
+Tested up to: 5.7.2
 Requires PHP: 5.6
 Stable tag: 1.0.0
 License: GPL-3.0-or-later
@@ -74,6 +74,23 @@ Dashicons by WordPress
 License: GNU GPLv2
 Source: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
-Kirki WordPress Customizer Framework
-License: MIT License
-Source: https://opensource.org/licenses/MIT
+Social Icons, Arrow icons, Reply Icons,Magnifier Icons & close icons by iconify
+License: Apache 2.0, http://www.apache.org/licenses/LICENSE-2.0
+Source: https://iconify.design/
+
+Source Serif Pro Font by Frank Grießhammer
+License: Apache, http://www.apache.org/licenses/LICENSE-2.0
+Source: https://fonts.google.com/specimen/Source+Serif+Pro?query=source+serif#about
+
+Overpass Font by Delve Withrington
+License: Apache, http://www.apache.org/licenses/LICENSE-2.0
+Source: https://fonts.google.com/specimen/Overpass?query=Overpass#about
+
+TGMPA by Thomas Griffin, Gary Jones, Juliette
+License: GNU GPLv2, https://opensource.org/licenses/GPL-2.0
+Source: http://tgmpluginactivation.com/
+
+Image for theme screenshot, Credit Nature's Beauty (https://stocksnap.io/author/naturesbeauty)
+License: CC0 1.0 Universal (CC0 1.0)
+License URL: https://stocksnap.io/license
+Source: https://stocksnap.io/photo/poppy-flower-P6ULXT0VCC

@@ -11,7 +11,15 @@
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('c-post c-post--portfolios'); ?>>
     <div class="c-post__thumbnail">
-        <?php the_post_thumbnail( 'full' ); ?>
+        <?php 
+        if ( has_post_thumbnail() ) { 
+            the_post_thumbnail( 'full' ); 
+        }
+        else{
+            echo '<img src="' . esc_url( get_stylesheet_directory_uri() ).'/assets/images/no-thumbnail.png" />';
+        }
+        
+        ?>
     </div>
     <a class="c-post__link" href="<?php echo esc_url(get_permalink())  ?>">
         <div class="c-post__entry-meta">

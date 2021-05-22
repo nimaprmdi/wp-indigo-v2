@@ -45,9 +45,9 @@ if ( post_password_required() ) {
 		// Change the title of the reply section
 		'title_reply' => '<p class="c-comments__title c-comments__title--primary h2">'. __( 'Join the Conversation' , 'wp-indigo') .'</p><p class="c-comments__title h3 u-letter-space-medium">'. __( 'Leave a reply' , 'wp-indigo') .'</p>',
 		// Change the title of the reply section
-		'title_reply_to' =>  __( 'Reply' , 'wp-indigo'),
+		'title_reply_to' =>   __( 'Reply' , 'wp-indigo'),
 		//Cancel Reply Text
-		'cancel_reply_link' =>  __( 'Cancel Reply', 'wp-indigo' ),
+		'cancel_reply_link' =>	'<p class="h4 u-link--secondary">'.__( 'Cancel Reply', 'wp-indigo' ).'</p>',
 		// Redefine your own textarea (the comment body).
 		'comment_field' => '<p class="comment-form-comment h5 u-letter-space-small">Comment*<br /><textarea id="comment" name="comment" aria-required="true" ></textarea></p>',
 		//Message Before Comment
@@ -85,6 +85,7 @@ if ( post_password_required() ) {
 					'style'      => 'ol',
 					'short_ping' => true,
 					'walker'     => new Wp_indigo_walker_comment(),
+					'avatar_size' => 64,
 				)
 			);
 			?>

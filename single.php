@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-<main id="primary" class="c-main c-main--wide site-main">
+<main id="primary" class="c-main c-main--wide site-main <?php wp_indigo_portfolios_get_class_name(); ?>">
 
     <?php
 		while ( have_posts() ) :
@@ -22,12 +22,7 @@ get_header();
 
 			if ('portfolios' != get_post_type()) get_sidebar();
 			
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
 		endwhile;// End of the loop.	
-
 	?>
 
 </main><!-- #main -->

@@ -12,8 +12,14 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 
-    <?php wp_indigo_post_thumbnail(); ?>
+    <!-- Get the page thumbnail -->
+    <?php if ( has_post_thumbnail() ) : ?>
+    <div class="c-single__thumbnail">
+        <?php the_post_thumbnail( 'full' ); ?>
+    </div>
+    <?php endif; ?>
 
+    <!-- Get the page thumbnail -->
     <div class="c-single__entry-content">
         <?php
 		the_content();
@@ -27,6 +33,7 @@
 		?>
     </div><!-- .entry-content -->
 
+    <!-- Get the entry footer -->
     <?php if ( get_edit_post_link() ) : ?>
     <footer class="c-single__entry-footer">
         <?php

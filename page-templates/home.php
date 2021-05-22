@@ -5,15 +5,13 @@
  * 
  * The main template file for home page
  *
- * If this page doesn't exists index.php will show
+ * If this page doesn't exists index.php will show ( recommended for using as home page )
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  */
 get_header(); 
 ?>
-
-
 <section class="o-page__content o-page__content--center">
 
     <main id="primary" class="c-main site-main">

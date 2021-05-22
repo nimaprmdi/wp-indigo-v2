@@ -56,6 +56,7 @@
   width: 33px;
   height: 33px;
   display: inline-block;
+  margin-right: 11px;
 
   .avatar,
   img {
@@ -65,7 +66,6 @@
 
 .c-single__author__info {
   display: inline-block;
-  margin-left: 11px;
 }
 
 .c-single__author__link {
@@ -77,6 +77,14 @@
 .c-single__date {
   span {
     text-transform: uppercase;
+  }
+
+  a {
+    color: $wp_indigo_secondary_color;
+
+    &:hover {
+      color: $wp-indigo_quaternary_color;
+    }
   }
 }
 
@@ -120,6 +128,7 @@
 }
 
 .c-single__tags {
+  padding-top: 16px;
   margin-bottom: 24px;
   color: $wp_indigo_secondary_color;
 }
@@ -136,4 +145,5 @@
 .c-single__share {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
