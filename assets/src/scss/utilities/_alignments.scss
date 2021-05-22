@@ -21,8 +21,27 @@
 
 .aligncenter {
   clear: both;
-
-  @include center-block;
-
   margin-bottom: 1.5em;
+}
+
+.wp-block-image .alignright {
+  float: unset !important;
+  text-align: right;
+  width: 100% !important;
+
+  * {
+    width: max-content !important;
+    display: inline-block !important;
+  }
+}
+
+.wp-block-image .alignleft {
+  float: unset !important;
+  text-align: left;
+  width: 100% !important;
+
+  * {
+    width: max-content !important;
+    display: inline-block !important;
+  }
 }
