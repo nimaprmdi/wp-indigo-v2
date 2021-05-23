@@ -16,6 +16,8 @@
 
   img {
     border-radius: 50%;
+    height: 100% !important;
+    object-fit: cover;
   }
 }
 

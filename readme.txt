@@ -90,7 +90,7 @@ TGMPA by Thomas Griffin, Gary Jones, Juliette
 License: GNU GPLv2, https://opensource.org/licenses/GPL-2.0
 Source: http://tgmpluginactivation.com/
 
-Image for theme screenshot, Credit Nature's Beauty (https://stocksnap.io/author/naturesbeauty)
+Image for theme screenshot, Credit pxhere
 License: CC0 1.0 Universal (CC0 1.0)
-License URL: https://stocksnap.io/license
-Source: https://stocksnap.io/photo/poppy-flower-P6ULXT0VCC
+License URL: https://creativecommons.org/publicdomain/zero/1.0/
+Source: https://pxhere.com/en/photo/1259448

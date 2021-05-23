@@ -1802,7 +1802,9 @@ input[type="checkbox"]:checked:before {
   height: 106px;
   display: inline-block; }
   .c-profile__image img {
-    border-radius: 50%; }
+    border-radius: 50%;
+    height: 100% !important;
+    object-fit: cover; }
 
 .c-profile__title {
   margin-top: 28px; }
@@ -1942,6 +1944,7 @@ ol.children {
   width: 260px;
   margin-left: 65px;
   display: none;
+  opacity: 0;
   animation-name: fadeIn;
   animation-duration: 1s;
   animation-delay: 0.8s;
@@ -2032,7 +2035,9 @@ ol.children {
 
 /* Make sure logo link wraps around logo image. */
 .custom-logo-link {
-  display: inline-block; }
+  display: inline-block;
+  width: inherit;
+  height: inherit; }
 
 /* Captions
 --------------------------------------------- */
