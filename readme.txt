@@ -1,5 +1,5 @@
 === WP Indigo v2 ===
-Contributors: vitathemes, veronalabs, kashani, mrmolaei, mostafas1990, nimaprmi
+Contributors: vitathemes, veronalabs, kashani, mrmolaei, mostafas1990, nimaprmdi
 Requires at least: 5.0
 Tested up to: 5.7.2
 Requires PHP: 5.6

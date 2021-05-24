@@ -12,7 +12,7 @@
 
 <div class="c-profile">
     
-    <?php if ( true == get_theme_mod( 'profile_image', true ) && has_custom_logo()) : ?>
+    <?php if ( has_custom_logo()) : ?>
         <div class="c-profile__image">
             <?php wp_indigo_show_avatar(); ?>
         </div>

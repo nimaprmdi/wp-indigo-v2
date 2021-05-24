@@ -526,15 +526,6 @@ if( function_exists( 'kirki' ) ) {
 		],
 	] );
 
-	// Profile Checkbox
-	Kirki::add_field( 'wp_indigo_theme', [
-		'type'        => 'toggle',
-		'settings'    => 'profile_image',
-		'label'       => esc_html__( 'Display Profile Image', 'wp-indigo' ),
-		'section'     => 'elements',
-		'priority'    => 9,
-	] );
-
 
 	// Post Share icons Checkbox
 	Kirki::add_field( 'wp_indigo_theme', [

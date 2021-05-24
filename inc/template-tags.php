@@ -7,34 +7,6 @@
  * @package wp-indigo
  */
 
-if ( ! function_exists( 'wp_indigo_posted_on' ) ) :
-	/**
-	 * Prints HTML with meta information for the current post-date/time.
-	 */
-	function wp_indigo_posted_on() {
-		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-		}
-
-		$time_string = sprintf(
-			$time_string,
-			esc_attr( get_the_date( DATE_W3C ) ),
-			esc_html( get_the_date() ),
-			esc_attr( get_the_modified_date( DATE_W3C ) ),
-			esc_html( get_the_modified_date() )
-		);
-
-		$posted_on = sprintf(
-			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'wp-indigo' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-		);
-
-		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
-	}
-endif;
 
 if ( ! function_exists( 'wp_indigo_posted_by' ) ) :
 	/**
@@ -52,106 +24,6 @@ if ( ! function_exists( 'wp_indigo_posted_by' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'wp_indigo_entry_footer' ) ) :
-	/**
-	 * Prints HTML with meta information for the categories, tags and comments.
-	 */
-	function wp_indigo_entry_footer() {
-		// Hide category and tag text for pages.
-		if ( 'post' === get_post_type() ) {
-			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ', ', 'wp-indigo' ) );
-			if ( $categories_list ) {
-				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'wp-indigo' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			}
-
-			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'wp-indigo' ) );
-			if ( $tags_list ) {
-				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'wp-indigo' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			}
-		}
-
-		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo '<span class="comments-link">';
-			comments_popup_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: post title */
-						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'wp-indigo' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					wp_kses_post( get_the_title() )
-				)
-			);
-			echo '</span>';
-		}
-
-		edit_post_link(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="screen-reader-text">%s</span>', 'wp-indigo' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post( get_the_title() )
-			),
-			'<span class="edit-link">',
-			'</span>'
-		);
-	}
-endif;
-
-if ( ! function_exists( 'wp_indigo_post_thumbnail' ) ) :
-	/**
-	 * Displays an optional post thumbnail.
-	 *
-	 * Wraps the post thumbnail in an anchor element on index views, or a div
-	 * element when on single views.
-	 */
-	function wp_indigo_post_thumbnail() {
-		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
-			return;
-		}
-
-		if ( is_singular() && has_post_thumbnail() ) :
-			?>
-
-<div class="post-thumbnail">
-    <?php the_post_thumbnail(); ?>
-</div><!-- .post-thumbnail -->
-
-<?php else : ?>
-
-<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-    <?php
-					the_post_thumbnail(
-						'post-thumbnail',
-						array(
-							'alt' => the_title_attribute(
-								array(
-									'echo' => false,
-								)
-							),
-						)
-					);
-				?>
-</a>
-
-<?php
-		endif; // End is_singular().
-	}
-endif;
 
 if ( ! function_exists( 'wp_body_open' ) ) :
 	/**
@@ -200,65 +72,6 @@ if ( ! function_exists( 'wp_indigo_get_custom_category' ) ) :
 endif;
 
 
-if ( ! function_exists( 'wp_indigo_get_custom_category_list' ) ) :
-	/**
-	 * Get category lists
-	 *
-	 * @link https://core.trac.wordpress.org/ticket/12563
-	 */ 
-
-	function wp_indigo_get_custom_category_list($wp_indigo_custom_class = "c-widget__item__link" ) {
-
-		if( ! empty( get_the_category() ) ){
-			/* get category */
-			$categories = get_the_category();
-			$output = '';
-			$category_counter = 0;
-			if ( ! empty( $categories ) ) {
-			
-				foreach( $categories as $category ) {
-					$category_counter++;
-
-					/* translators: %s: View all posts */
-					$output .= '<li class="c-widget__item"><a class="h6 u-letter-space-regular '.esc_attr(  $wp_indigo_custom_class ).'" href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'wp-indigo' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a></li>' ;
-				}
-				echo  wp_kses_post(trim( $output ));
-			}
-		}
-
-	}
-endif;
-
-
-if ( ! function_exists( 'wp_indigo_get_post_date' ) ) :
-	/**
-	 * Prints HTML with meta information for the current post-date/time.
-	 */
-	function wp_indigo_get_post_date() {
-		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-		}
-
-		$time_string = sprintf(
-			$time_string,
-			esc_attr( get_the_date( DATE_W3C ) ),
-			esc_html( get_the_date() ),
-			esc_attr( get_the_modified_date( DATE_W3C ) ),
-			esc_html( get_the_modified_date() )
-		);
-
-		$posted_on = sprintf(
-			esc_html__( 'post date', 'wp-indigo' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-		);
-
-		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
-	}
-endif;
-
-
 if (! function_exists('wp_indigo_get_default_pagination')) :
 	/**
 	* Show numeric pagination
@@ -302,6 +115,7 @@ if ( ! function_exists( 'wp_indigo_share_links' ) ) {
 		}
 	}
 }
+
 
 if ( ! function_exists( 'wp_indigo_socials_links' ) ) :
 	/**
@@ -431,20 +245,6 @@ if ( ! function_exists( 'wp_indigo_socials_links' ) ) :
 	}
 endif;
 
-if ( ! function_exists('wp_indigo_get_current_page_name')) :
-	/**
-	  * Get current page name (slug)
-	  */
-	function wp_indigo_get_current_page_name() {
-
-		global $post;
-		$post_slug = $post->post_name;
-		$post_slug = str_replace("-", " ", $post_slug);
-		$page_name = esc_html($post_slug);
-		echo esc_html($post_slug);
-			
-	}
-endif;
 
 
 if (! function_exists('wp_indigo_get_home_section_close_tag')) :
@@ -586,4 +386,20 @@ if ( ! function_exists( 'wp_indigo_get_taxonomy' ) ) :
             }
         }
     }
+endif;
+
+if ( ! function_exists( 'wp_indigo_branding' ) ) :
+	/**
+	 * Display Custom logo if exist otherwise show site title
+	 */
+	function wp_indigo_branding() {
+		
+	?>
+
+	<h1 class="c-header__title site-title">
+		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php esc_html(bloginfo( 'name' )); ?></a>
+	</h1>
+	<?php 	
+	}
+	
 endif;

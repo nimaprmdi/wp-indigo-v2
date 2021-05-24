@@ -7,8 +7,6 @@
  * @package wp-indigo
  */
 
-
-
 /**
  * Theme Setup
  */
@@ -23,11 +21,6 @@ require get_template_directory() . '/classes/class_wp_indigo_walker_comment.php'
  * Nav walker
  */
 require get_template_directory() . '/classes/class_wp_indigo_walker_nav_menu.php';
-
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.

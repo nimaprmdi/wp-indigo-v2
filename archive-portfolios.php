@@ -17,7 +17,7 @@ get_header();
     <header class="c-main__header">
         <h1 class="c-main__page-title"><?php esc_html_e( 'Portfolio', 'wp-indigo' ); ?></h1>
         <div class="c-main__category">
-            <?php wp_indigo_taxonomy_filter("c-main__cat h3 h3--normal" , "" , false , "portfolio_category");?>
+            <?php wp_indigo_taxonomy_filter("c-main__cat h3" , "" , false , "portfolio_category");?>
         </div>
     </header><!-- c-main__header -->
 

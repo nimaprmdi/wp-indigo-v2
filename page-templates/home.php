@@ -5,7 +5,7 @@
  * 
  * The main template file for home page
  *
- * If this page doesn't exists index.php will show ( recommended for using as home page )
+ * If this page doesn't exists index.php will show ( Recommended for using as home page )
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -18,7 +18,7 @@ get_header();
 
         <section class="c-main__content">
 
-            <?php get_template_part( "template-parts/content" , "profile" ); ?>
+            <?php get_template_part( "template-parts/components/profile" ); ?>
 
         </section>
 

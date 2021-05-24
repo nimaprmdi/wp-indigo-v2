@@ -21,7 +21,7 @@ get_header();
         <h1 class="c-main__page-title"><?php esc_html_e( 'Blog', 'wp-indigo' ); ?></h1>
 
         <div class="c-main__category">
-            <?php wp_indigo_category_filter("c-main__cat h3 h3--normal" , "" , true  ); ?>
+            <?php wp_indigo_category_filter("c-main__cat h3" , "" , true  ); ?>
         </div>
 
     </header>
