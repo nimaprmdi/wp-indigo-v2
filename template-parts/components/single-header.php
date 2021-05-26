@@ -1,3 +1,6 @@
+<?php 
+
+?>
 <section class="c-single__entry-header">
 
     <div class="c-single__entry-header__content">
@@ -26,7 +29,18 @@
                 </div>
                 <?php endif; ?>
                 <div class="c-single__author__info">
-                    <?php wp_indigo_posted_by("c-single__author__link"); ?>
+                    
+                <span class="byline">
+                    <span class="author vcard">
+                        <a class="c-single__author__link h6 url fn n" href="<?php esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>">
+                            <?php 
+                                $wp_indigo_author_id = get_the_author_meta( 'ID' );
+                                echo esc_html( get_the_author_meta( 'nicename', $wp_indigo_author_id ) ) 
+                            ?>
+                        </a>
+                    </span>
+                </span>
+                    
                 </div>
             </div>
 

@@ -38,16 +38,26 @@ const cleanCssTask = (cb) => {
 };
 
 const concatVendorJs = (cb) => {
-  return gulp.src(["./assets/src/js/iconify.js"]).pipe(concat("vendor.js")).pipe(gulp.dest("assets/js"));
+  return gulp
+    .src(["./assets/src/js/iconify.js"])
+    .pipe(concat("vendor.js"))
+    .pipe(gulp.dest("assets/js"));
   cb();
 };
 
 const concatJs = (cb) => {
-  return gulp.src("./assets/src/js/*.js").pipe(concat("script.js")).pipe(gulp.dest("./assets/js"));
+  return gulp
+    .src("./assets/src/js/script.js")
+    .pipe(concat("script.js"))
+    .pipe(gulp.dest("./assets/js"));
   cb();
 };
 
-exports.default = () => gulp.src("assets/src/images/**/*").pipe(imagemin()).pipe(gulp.dest("assets/images/dist"));
+exports.default = () =>
+  gulp
+    .src("assets/src/images/**/*")
+    .pipe(imagemin())
+    .pipe(gulp.dest("assets/images/dist"));
 
 const browserSyncTask = (cb) => {
   browserSync.init({
@@ -59,7 +69,11 @@ const browserSyncTask = (cb) => {
 
 const watchTask = () => {
   gulp.watch("./assets/src/scss/**/*.scss", series(sassTask, cssConcatTask));
-  gulp.watch("./assets/src/js/*.js", series(concatJs, concatVendorJs), browserSync.reload);
+  gulp.watch(
+    "./assets/src/js/*.js",
+    series(concatJs, concatVendorJs),
+    browserSync.reload
+  );
   gulp.watch("./**/*.php", browserSync.reload);
 };
 

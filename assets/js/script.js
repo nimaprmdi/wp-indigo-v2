@@ -2,7 +2,11 @@
   #Detect Element inside other element
 \*--------------------------------------*/
 function wp_indigo_childFinder(parentElement, childElement) {
-  let result = document.querySelector(parentElement).getElementsByClassName(childElement)[0] ? true : false;
+  let result = document
+    .querySelector(parentElement)
+    .getElementsByClassName(childElement)[0]
+    ? true
+    : false;
   return result;
 }
 
@@ -10,14 +14,17 @@ function wp_indigo_childFinder(parentElement, childElement) {
   #Menu items trap focus
 \*------------------------------------*/
 if (wp_indigo_childFinder("body", "s-nav")) {
+  let wp_Indigo_main_header = document.querySelector(".c-header__main");
   let wp_indigo_menuToggle = document.querySelector(".js-header__menu");
   let wp_indigo_menu = document.querySelector(".s-nav");
-  let wp_indigo_menuListItems = wp_indigo_menu.querySelectorAll(".s-nav > li");
-  let wp_indigo_menuLinks = wp_indigo_menu.getElementsByTagName("a");
-  let wp_indigo_lastIndex = wp_indigo_menuListItems.length - 1;
+  let wp_indigo_first_menu_item = wp_indigo_menu.querySelector(
+    ".s-nav > .menu-item:first-child > a"
+  );
   let wp_indigo_isBackward;
-
-  wp_indigo_menuListItems[wp_indigo_lastIndex].focus();
+  let wp_indigo_last_item = document.querySelector(".s-nav > .menu-item:last-child");
+  let wp_indigo_last_menu_item_link = wp_indigo_last_item.querySelector(
+    ".sub-menu > .menu-item:last-child > a"
+  );
 
   // Detect keyboard Navigation
   document.addEventListener("keydown", function (e) {
@@ -28,17 +35,20 @@ if (wp_indigo_childFinder("body", "s-nav")) {
     }
   });
 
-  // Focus handle on last menu item
-  wp_indigo_menuLinks[wp_indigo_lastIndex].addEventListener("blur", function () {
-    if (wp_indigo_isBackward == false) {
-      wp_indigo_menuToggle.focus();
+  // Focus handle go on the first menu item
+  wp_indigo_menuToggle.addEventListener("blur", function (e) {
+    if (wp_indigo_isBackward) {
+      if (wp_Indigo_main_header.classList.contains("is-open")) {
+        wp_indigo_first_menu_item.focus();
+        console.log("is-open");
+      }
     }
   });
 
-  // Focus handle on last menu item
-  wp_indigo_menuToggle.addEventListener("blur", function (e) {
-    if (wp_indigo_isBackward) {
-      wp_indigo_menuLinks[wp_indigo_lastIndex].focus();
+  // Focus handle go on the menu button
+  wp_indigo_last_menu_item_link.addEventListener("blur", function () {
+    if (wp_indigo_isBackward === false) {
+      wp_indigo_menuToggle.focus();
     }
   });
 }

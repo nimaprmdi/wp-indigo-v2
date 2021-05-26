@@ -12,9 +12,13 @@
 
 <div class="c-profile">
     
-    <?php if ( has_custom_logo()) : ?>
+    <?php 
+        $wp_indigo_profile_image = get_theme_mod( 'profile_image', '' );
+        if ( $wp_indigo_profile_image ) : ?>
         <div class="c-profile__image">
-            <?php wp_indigo_show_avatar(); ?>
+            
+          <img src="<?php echo esc_url( $wp_indigo_profile_image ); ?>" alt="<?php esc_attr__( "Profile Image" , "wp-indigo" ) ?>" />
+
         </div>
     <?php endif; ?>
 

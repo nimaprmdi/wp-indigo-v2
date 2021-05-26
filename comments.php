@@ -104,7 +104,6 @@ if ( post_password_required() ) {
     <?php
 
 	endif; // Check for have_comments().
-
 	
 	?>
 

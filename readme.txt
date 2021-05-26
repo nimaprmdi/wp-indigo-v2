@@ -28,7 +28,7 @@ It's based on the [indigo](https://github.com/sergiokopplin/indigo), that origin
 * Right-to-left (RTL) languages support
 * SEO optimized
 * GNU GPL version 3.0 licensed
-* Only support 2 levels sub-menus
+* support 10 levels sub-menus
 * …and much more
 
 See a working example at [demo.vitathemes.com/indigo](https://demo.vitathemes.com/indigo/).

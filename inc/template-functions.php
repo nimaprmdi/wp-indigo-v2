@@ -110,14 +110,6 @@ function wp_indigo_theme_settings() {
 <?php
 }
 
-function wp_indigo_show_avatar() {
-	/**
-	 * Display image of profile section
-	 */
-	if ( has_custom_logo() ) {
-		the_custom_logo();
-	}
-}
 
 function wp_indigo_show_description() {
 	/**

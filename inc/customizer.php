@@ -67,7 +67,6 @@ add_action( 'customize_preview_init', 'wp_indigo_customize_preview_js' );
 /* Kirki  */
 if( function_exists( 'kirki' ) ) {
 
-
 	/*
      *	Kirki - Config
 	 */
@@ -80,12 +79,6 @@ if( function_exists( 'kirki' ) ) {
 	/*
 	 *	Kirki -> Panels
 	 */
-
-	// // Footer
-	// Kirki::add_panel( 'footer', array(
-	// 	'priority' => 180,
-	// 	'title'    => esc_html__( 'Footer', 'wp-indigo' ),
-	// ) );
 
 	// Typography
 	Kirki::add_panel( 'typography', array(
@@ -556,5 +549,16 @@ if( function_exists( 'kirki' ) ) {
 		'default'     => '1',
 		'priority'    => 11,
 	] );
+
+	Kirki::add_field( 'wp_indigo_theme', [
+		'type'        => 'image',
+		'settings'    => 'profile_image',
+		'label'       => esc_html__( 'Profile Image', 'wp-indigo' ),
+		'description' => esc_html__( 'Add Profile Image here', 'wp-indigo' ),
+		'section'     => 'elements',
+		'priority'    => 12,
+	] );
+	
+
 	
 }
