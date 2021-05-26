@@ -8,22 +8,6 @@
  */
 
 
-if ( ! function_exists( 'wp_indigo_posted_by' ) ) :
-	/**
-	 * Prints HTML with meta information for the current author.
-	 */
-	function wp_indigo_posted_by(  $wp_indigo_custom_class = "" ) {
-		$byline = sprintf(
-			/* translators: %s: post author. */
-			esc_html__( 'post author', 'wp-indigo' ),
-			'<span class="author vcard"><a class="'.esc_attr( $wp_indigo_custom_class ).' h6 url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-		);
-
-		echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
-	}
-endif;
-
 
 if ( ! function_exists( 'wp_body_open' ) ) :
 	/**
@@ -393,13 +377,20 @@ if ( ! function_exists( 'wp_indigo_branding' ) ) :
 	 * Display Custom logo if exist otherwise show site title
 	 */
 	function wp_indigo_branding() {
-		
-	?>
+	
+		if( has_custom_logo() ) {
+			the_custom_logo();
+		}
+		else{
+			?>
 
-	<h1 class="c-header__title site-title">
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php esc_html(bloginfo( 'name' )); ?></a>
-	</h1>
-	<?php 	
+			<h1 class="c-header__title site-title">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php esc_html(bloginfo( 'name' )); ?></a>
+			</h1>
+
+			<?php
+		}
+		
 	}
 	
 endif;

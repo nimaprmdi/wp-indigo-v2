@@ -1492,6 +1492,8 @@ input[type="checkbox"]:checked:before {
         opacity: 1;
         visibility: visible; } }
   .menu-item:focus-within > .sub-menu {
+    display: block;
+    padding-right: 0px;
     opacity: 1;
     visibility: visible; }
 
