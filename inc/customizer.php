@@ -559,6 +559,14 @@ if( function_exists( 'kirki' ) ) {
 		'priority'    => 12,
 	] );
 	
+	Kirki::add_field( 'wp_indigo_theme', [
+		'type'        => 'toggle',
+		'settings'    => 'portfolio_category',
+		'label'       => esc_html__( 'Enable Portfolios Category', 'wp-indigo' ),
+		'section'     => 'elements',
+		'default'     => '1',
+		'priority'    => 13,
+	] );
 
 	
 }

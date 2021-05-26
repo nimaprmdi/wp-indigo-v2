@@ -1,7 +1,6 @@
-<?php 
- 
- 
- /** Plugin installation and activation for WordPress themes.
+<?php
+/**
+ * Plugin installation and activation for WordPress themes.
  *
  * Please note that this is a drop-in library for a theme or plugin.
  * The authors of this library (Thomas, Gary and Juliette) are NOT responsible
@@ -18,13 +17,16 @@
 
 /*
 	Copyright 2011 Thomas Griffin (thomasgriffinmedia.com)
+
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as
 	published by the Free Software Foundation.
+
 	This program is distributed in the hope that it will be useful,
 	but WITHOUT ANY WARRANTY; without even the implied warranty of
 	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 	GNU General Public License for more details.
+
 	You should have received a copy of the GNU General Public License
 	along with this program; if not, write to the Free Software
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
@@ -661,24 +663,24 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 			wp_clean_plugins_cache( false );
 
 			?>
-<div class="tgmpa wrap">
-    <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
-    <?php $plugin_table->prepare_items(); ?>
+			<div class="tgmpa wrap">
+				<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
+				<?php $plugin_table->prepare_items(); ?>
 
-    <?php
+				<?php
 				if ( ! empty( $this->message ) && is_string( $this->message ) ) {
 					echo wp_kses_post( $this->message );
 				}
 				?>
-    <?php $plugin_table->views(); ?>
+				<?php $plugin_table->views(); ?>
 
-    <form id="tgmpa-plugins" action="" method="post">
-        <input type="hidden" name="tgmpa-page" value="<?php echo esc_attr( $this->menu ); ?>" />
-        <input type="hidden" name="plugin_status" value="<?php echo esc_attr( $plugin_table->view_context ); ?>" />
-        <?php $plugin_table->display(); ?>
-    </form>
-</div>
-<?php
+				<form id="tgmpa-plugins" action="" method="post">
+					<input type="hidden" name="tgmpa-page" value="<?php echo esc_attr( $this->menu ); ?>" />
+					<input type="hidden" name="plugin_status" value="<?php echo esc_attr( $plugin_table->view_context ); ?>" />
+					<?php $plugin_table->display(); ?>
+				</form>
+			</div>
+			<?php
 		}
 
 		/**
@@ -2875,7 +2877,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 
 				// Wrap the install process with the appropriate HTML.
 				echo '<div class="tgmpa">',
-					'<h2 style="font-size: 23px; font-family: $castpress_font_regular;; line-height: 29px; margin: 0; padding: 9px 15px 4px 0;">', esc_html( get_admin_page_title() ), '</h2>
+					'<h2 style="font-size: 23px; font-weight: 400; line-height: 29px; margin: 0; padding: 9px 15px 4px 0;">', esc_html( get_admin_page_title() ), '</h2>
 					<div class="update-php" style="width: 100%; height: 98%; min-height: 850px; padding-top: 1px;">';
 
 				// Process the bulk installation submissions.
@@ -3257,6 +3259,7 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
 							/*
 							[TGMPA - ]
 							$this->skin->plugin_info = get_plugin_data( WP_PLUGIN_DIR . '/' . $plugin, false, true);
+
 							if ( !isset( $current->response[ $plugin ] ) ) {
 								$this->skin->set_result('up_to_date');
 								$this->skin->before();
@@ -3265,8 +3268,10 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
 								$results[$plugin] = true;
 								continue;
 							}
+
 							// Get the URL to the zip file.
 							$r = $current->response[ $plugin ];
+
 							$this->skin->plugin_active = is_plugin_active($plugin);
 							*/
 
@@ -3753,5 +3758,3 @@ if ( ! class_exists( 'TGMPA_Utils' ) ) {
 		}
 	} // End of class TGMPA_Utils
 } // End of class_exists wrapper
-
-?>

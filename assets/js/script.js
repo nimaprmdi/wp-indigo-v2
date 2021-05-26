@@ -20,6 +20,11 @@ if (wp_indigo_childFinder("body", "s-nav")) {
   let wp_indigo_first_menu_item = wp_indigo_menu.querySelector(
     ".s-nav > .menu-item:first-child > a"
   );
+
+  let wp_indigo_last_menu_item = wp_indigo_menu.querySelector(
+    ".s-nav > .menu-item:last-child > a"
+  );
+
   let wp_indigo_isBackward;
   let wp_indigo_last_item = document.querySelector(".s-nav > .menu-item:last-child");
   let wp_indigo_last_menu_item_link = wp_indigo_last_item.querySelector(
@@ -44,12 +49,21 @@ if (wp_indigo_childFinder("body", "s-nav")) {
     }
   });
 
-  // Focus handle go on the menu button
-  wp_indigo_last_menu_item_link.addEventListener("blur", function () {
-    if (wp_indigo_isBackward === false) {
-      wp_indigo_menuToggle.focus();
-    }
-  });
+  if (wp_indigo_childFinder(".s-nav > .menu-item:last-child", "sub-menu")) {
+    // Focus handle go on the menu button
+    wp_indigo_last_menu_item_link.addEventListener("blur", function () {
+      if (wp_indigo_isBackward === false) {
+        wp_indigo_menuToggle.focus();
+      }
+    });
+  } else {
+    // Focus handle go on the menu button
+    wp_indigo_last_menu_item.addEventListener("blur", function () {
+      if (wp_indigo_isBackward === false) {
+        wp_indigo_menuToggle.focus();
+      }
+    });
+  }
 }
 
 /*------------------------------------*\

@@ -16,9 +16,13 @@ get_header();
 
     <header class="c-main__header">
         <h1 class="c-main__page-title"><?php esc_html_e( 'Portfolio', 'wp-indigo' ); ?></h1>
+
+        <?php if ( true == get_theme_mod( 'portfolio_category', true ) ) : ?>
         <div class="c-main__category">
             <?php wp_indigo_taxonomy_filter("c-main__cat h3" , "" , false , "portfolio_category");?>
         </div>
+        <?php endif; ?>
+        
     </header><!-- c-main__header -->
 
     <section class="c-main__content">
