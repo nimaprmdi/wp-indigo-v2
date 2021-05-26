@@ -40,7 +40,6 @@ if (wp_indigo_childFinder("body", "s-nav")) {
     if (wp_indigo_isBackward) {
       if (wp_Indigo_main_header.classList.contains("is-open")) {
         wp_indigo_first_menu_item.focus();
-        console.log("is-open");
       }
     }
   });
@@ -59,8 +58,6 @@ if (wp_indigo_childFinder("body", "s-nav")) {
 if (wp_indigo_childFinder("body", "c-main__portfolios")) {
   let wp_indigo_portfoliosCount = document.querySelectorAll(".c-post").length;
   let wp_indigo_portfolioMainContent = document.querySelector(".c-main__portfolios");
-
-  console.log(wp_indigo_portfoliosCount);
 
   if (wp_indigo_portfoliosCount === 3) {
     wp_indigo_portfolioMainContent.classList.add("c-main__portfolios--md");
