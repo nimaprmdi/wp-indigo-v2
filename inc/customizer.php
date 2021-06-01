@@ -86,6 +86,12 @@ if( function_exists( 'kirki' ) ) {
 		'title'    => esc_html__( 'Typography', 'wp-indigo' ),
 	) );
 	
+	// Footer
+	Kirki::add_panel( 'footer', array(
+		'priority' => 180,
+		'title'    => esc_html__( 'Footer', 'wp-indigo' ),
+	) );
+
 	
 	/*
 	 *	Kirki -> Sections
@@ -120,6 +126,13 @@ if( function_exists( 'kirki' ) ) {
 		'description'    => esc_html__( 'Change Custom Options of theme.', 'wp-indigo' ),
 		'panel'          => '',
 		'priority'       => 160,
+	) );
+
+	/* Footer Options */
+	Kirki::add_section( 'copyrights', array(
+		'title'          => esc_html__( 'Copyright', 'wp-indigo' ),
+		'panel'          => 'footer',
+		'priority'       => 170,
 	) );
 
  	/*
@@ -569,4 +582,30 @@ if( function_exists( 'kirki' ) ) {
 	] );
 
 	
+	Kirki::add_field( 'wp_indigo_theme', [
+		'type'     => 'text',
+		'settings' => 'copytext',
+		'label'    => esc_html__( 'Copyright text', 'wp-indigo' ),
+		'section'  => 'copyrights',
+		'default'  => esc_html__( 'wp-indigo Theme by', 'wp-indigo' ),
+		'priority' => 10,
+	] );
+
+	Kirki::add_field( 'wp_indigo_theme', [
+		'type'     => 'text',
+		'settings' => 'copylink_text',
+		'label'    => __( 'Copyright link text (like your company name)', 'wp-indigo' ),
+		'default'  => esc_html__( 'VitaThemes', 'wp-indigo' ),
+		'section'  => 'copyrights',
+		'priority' => 11,
+	] );
+
+	Kirki::add_field( 'wp_indigo_theme', [
+		'type'     => 'link',
+		'settings' => 'copylink',
+		'label'    => __( 'Copyright link text', 'wp-indigo' ),
+		'section'  => 'copyrights',
+		'default'  => esc_url('http://vitathemes.com/'),
+		'priority' => 12,
+	] );
 }

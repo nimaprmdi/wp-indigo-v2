@@ -8,7 +8,6 @@
  *
  * @package wp-indigo
  */
-
 ?>
 
 <footer id="colophon" class="c-footer site-footer">
@@ -20,29 +19,39 @@
         <div class="c-footer__content">
 
             <div class="c-footer__site-info">
-                <h5 class="c-footer__context">
-                    <?php
-                        /* translators: %s: Theme creator name by */
-                        printf( esc_html__( 'WP-Indigo by', 'wp-indigo' ), 'wp-indigo' );
-                    ?>
-                </h5>
-                <a class="c-footer__link h5 u-link--secondary"
-                    href="<?php echo esc_url('https://vitathemes.com' ) ; ?>">
-                    <?php 
-                        /* translators: %s: Vita themes is the creator of the theme */
-                        printf( esc_html__( 'VitaThemes ', 'wp-indigo' ) );
-                    ?>
-                </a>
-                <span class="u-seprator"> <?php echo esc_html( '|' ) ?></span>
-                <a class="c-footer__link h5 u-link--secondary"
-                    href="<?php echo esc_url( get_privacy_policy_url() ); ?>">
+                <div class="c-footer__copy">
+        
+                    <?php echo esc_html(get_theme_mod( 'copytext' , esc_html__( 'WP-Indigo by', 'wp-indigo' ) )); ?>
+
+                    
+                    <a class="c-footer__link h5 u-link--secondary" href="<?php echo esc_url( get_theme_mod( 'copylink', esc_url('http://vitathemes.com/') ) ); ?>">
+                        <?php echo esc_html(get_theme_mod( 'copylink_text', esc_html( 'VitaThemes') ) ) ; ?>
+                    </a>
+
 
                     <?php
-                        /* translators: 1: Privacy Policy Link */
-                        printf( esc_html__( 'Privacy Policy', 'wp-indigo' ), 'wp-indigo');
+                    if ( has_nav_menu( 'primary-footer' ) ) {
+                
+                        $wp_indigo_menuParameters = array(
+                            'theme_location'  => 'primary-footer',
+                            'container'       => false,
+                            'echo'            => false,
+                            'items_wrap'      => '%3$s',
+                            'depth'           => 0,
+                            'link_class'   => 'c-footer__link c-footer__link--nav'
+
+                        );
+
+                        echo strip_tags(wp_nav_menu( $wp_indigo_menuParameters ), '<a>' );
+                        
+                    }
                     ?>
 
-                </a>
+                </div>
+
+
+              
+                
             </div><!-- .site-info -->
 
         </div>

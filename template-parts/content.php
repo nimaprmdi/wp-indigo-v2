@@ -31,7 +31,7 @@
         <div class="c-post__date">
             <span>
                 <a class="h6" href="<?php echo esc_url( get_permalink() ) ?>" rel="bookmark">
-                    <?php echo esc_html( get_the_date( "M d, Y" ) ) ?>
+                    <?php echo esc_html( get_the_date() ) ?>
                 </a>
             </span>
         </div><!-- c-post__date -->

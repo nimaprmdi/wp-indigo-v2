@@ -56,13 +56,15 @@
     display: inline-block;
     font-size: 20px;
     line-height: 31px;
-    font-family: $wp_indigo_primary_font_light;
+    font-family: $wp_indigo_primary_font;
+    font-weight: 400;
     font-size: 20px;
     line-height: 31px;
     opacity: 0;
     letter-spacing: 0.05em;
 
     @include media(tablet) {
+      font-weight: 300;
       margin-left: 48px;
       margin-bottom: 0px;
       font-size: 13px;
@@ -119,7 +121,8 @@
     background-color: $color_background_body;
     z-index: 150;
     text-transform: capitalize;
-    font-family: $wp_indigo_secondary_font_regular;
+    font-family: $wp_indigo_secondary_font;
+    font-weight: 400;
     display: inline-block;
 
     @include media(tablet) {

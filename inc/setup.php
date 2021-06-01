@@ -48,6 +48,12 @@ if ( ! function_exists( 'wp_indigo_setup' ) ) :
 			)
 		);
 
+		register_nav_menus(
+			array(
+				'primary-footer' => esc_html__( 'Footer', 'castpress' ),
+			)
+		);
+
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.

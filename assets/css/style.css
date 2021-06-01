@@ -21,6 +21,26 @@ Requires PHP: 5.6
 /*------------------------------------*\
   #Mixins
 \*------------------------------------*/
+@font-face {
+  font-family: "SourceSerifPro";
+  font-weight: 300;
+  src: url("../fonts/sourceserifpro-light.woff2") format("woff2"), url("../fonts/sourceserifpro-light.woff") format("woff"); }
+
+@font-face {
+  font-family: "SourceSerifPro";
+  font-weight: 400;
+  src: url("../fonts/SourceSerifPro-regular.woff2") format("woff2"), url("../fonts/SourceSerifPro-regular.woff") format("woff"); }
+
+@font-face {
+  font-family: "overpass";
+  font-weight: 300;
+  src: url("../fonts/overpass-light.woff2") format("woff2"), url("../fonts/overpass-light.woff") format("woff"); }
+
+@font-face {
+  font-family: "overpass";
+  font-weight: 400;
+  src: url("../fonts/Overpass.woff2") format("woff2"), url("../fonts/Overpass.woff") format("woff"); }
+
 /*------------------------------------*\
   #Animations
 \*------------------------------------*/
@@ -656,27 +676,6 @@ html {
 *   https://fonts.google.com/specimen/Source+Serif+Pro?query=Source+Serif+Pro&preview.text_type=custom#about
 *
 */
-@font-face {
-  font-family: "sourceserifpro-regular";
-  src: url("../fonts/sourceserifpro-regular.woff2") format("woff2"), url("../fonts/sourceserifpro-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: "sourceserifpro-light";
-  src: url("../fonts/sourceserifpro-light.woff2") format("woff2"), url("../fonts/sourceserifpro-light.woff") format("woff"); }
-
-/*
-*   Overpass
-*   https://fonts.google.com/specimen/Overpass?query=overpass#about
-*
-*/
-@font-face {
-  font-family: "overpass";
-  src: url("../fonts/overpass.woff2") format("woff2"), url("../fonts/overpass.woff") format("woff"); }
-
-@font-face {
-  font-family: "overpass-light";
-  src: url("../fonts/overpass-light.woff2") format("woff2"), url("../fonts/overpass-light.woff") format("woff"); }
-
 /* Typography
 --------------------------------------------- */
 /*------------------------------------*\
@@ -705,7 +704,7 @@ h6 {
 /* H1 */
 h1,
 .h1 {
-  font-family: var(--wp_indigo_headings_font);
+  font-family: "overpass";
   font-weight: 400;
   font-size: 26px;
   line-height: 40px;
@@ -714,7 +713,7 @@ h1,
 /* H2 */
 h2,
 .h2 {
-  font-family: var(--wp_indigo_headings_font);
+  font-family: "overpass";
   font-size: 20px;
   line-height: 31px;
   font-weight: 400;
@@ -723,7 +722,7 @@ h2,
 /* H3 */
 h3,
 .h3 {
-  font-family: var(--wp_indigo_headings_font);
+  font-family: "overpass";
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -732,25 +731,25 @@ h3,
 /* H4 */
 h4,
 .h4 {
-  font-family: var(--wp_indigo_texts_font);
+  font-family: "SourceSerifPro";
+  font-weight: 400;
   font-size: 16px;
   line-height: 27px;
-  font-weight: 400;
   color: var(--wp_indigo_primary-color); }
 
 /* H5 */
 h5,
 .h5 {
-  font-family: var(--wp_indigo_texts_font);
+  font-family: "SourceSerifPro";
+  font-weight: 400;
   font-size: 13px;
   line-height: 16px;
-  font-weight: 400;
   color: var(--wp_indigo_primary-color); }
 
 /* H6 */
 h6,
 .h6 {
-  font-family: var(--wp_indigo_texts_secondary_font);
+  font-family: "overpass";
   font-size: 13px;
   line-height: 21px;
   font-weight: 300;
@@ -765,7 +764,8 @@ h6,
   transition: 0.2s; }
 
 p {
-  font-family: var(--wp_indigo_texts_font);
+  font-family: "SourceSerifPro";
+  font-weight: 400;
   font-size: 16px;
   line-height: 27px;
   letter-spacing: 0.03em;
@@ -1391,13 +1391,15 @@ input[type="checkbox"]:checked:before {
     display: inline-block;
     font-size: 20px;
     line-height: 31px;
-    font-family: var(--wp_indigo_texts_secondary_font);
+    font-family: "overpass";
+    font-weight: 400;
     font-size: 20px;
     line-height: 31px;
     opacity: 0;
     letter-spacing: 0.05em; }
     @media only screen and (min-width: 980px) {
       .s-nav .menu-item {
+        font-weight: 300;
         margin-left: 48px;
         margin-bottom: 0px;
         font-size: 13px;
@@ -1446,7 +1448,8 @@ input[type="checkbox"]:checked:before {
     background-color: #ffffff;
     z-index: 150;
     text-transform: capitalize;
-    font-family: var(--wp_indigo_texts_font);
+    font-family: "SourceSerifPro";
+    font-weight: 400;
     display: inline-block; }
     @media only screen and (min-width: 980px) {
       .sub-menu .menu-item {
@@ -1909,7 +1912,8 @@ input[type="checkbox"]:checked:before {
 .comment-reply-link {
   font-size: 16px;
   line-height: 27px;
-  font-family: var(--wp_indigo_texts_font); }
+  font-family: "SourceSerifPro";
+  font-weight: 400; }
 
 .comment-time {
   text-transform: uppercase; }
@@ -1990,7 +1994,8 @@ ol.children {
   list-style-type: none;
   padding-left: 0px;
   margin-left: 0px;
-  font-family: var(--wp_indigo_texts_secondary_font); }
+  font-family: "overpass";
+  font-weight: 300; }
 
 .widget li {
   margin-bottom: 10px;
@@ -2260,7 +2265,8 @@ ol.children {
 
 .page-numbers {
   margin: 0px 4px;
-  font-family: var(--wp_indigo_texts_secondary_font);
+  font-family: "overpass";
+  font-weight: 300;
   font-size: 13px;
   line-height: 21px;
   letter-spacing: 0.05em;
@@ -2339,23 +2345,47 @@ ol.children {
     border-radius: 50%; }
 
 .c-footer__site-info {
-  display: flex;
+  text-align: center;
   justify-content: center;
   align-items: center;
   margin-top: 34px;
-  padding-bottom: 39px; }
+  padding-bottom: 39px;
+  width: 100%;
+  display: inline-block; }
+  @media only screen and (min-width: 980px) {
+    .c-footer__site-info {
+      display: flex; } }
 
-.c-footer__context {
+.c-footer__copy {
   margin: 0px;
   height: max-content;
   letter-spacing: 0.03em;
   margin: 0px 4px;
-  color: var(--wp_indigo_secondary-color); }
+  color: var(--wp_indigo_secondary-color);
+  width: max-content;
+  display: inline-block;
+  max-width: 100%; }
 
 .c-footer__link {
   height: max-content;
   margin: 0px;
-  letter-spacing: 0.03em; }
+  letter-spacing: 0.03em;
+  color: var(--wp_indigo_secondary-color); }
+
+.c-footer__link--nav::before {
+  content: " | "; }
+
+.s-footer__nav {
+  padding: 0;
+  margin: 0; }
+  .s-footer__nav .menu-item {
+    display: inline-block;
+    line-height: 16px; }
+    .s-footer__nav .menu-item::before {
+      content: " | ";
+      margin-left: 2px;
+      color: var(--wp_indigo_tertiary_color) !important;
+      font-size: 10px; }
 
 /*--------------------------------------------------------------
 # External
@@ -2383,8 +2413,8 @@ input[type="submit"] {
   padding: 12.5px 30px;
   font-size: 13px;
   line-height: 21px;
+  font-family: "overpass";
   font-weight: 300;
-  font-family: var(--wp_indigo_texts_secondary_font);
   letter-spacing: 0.05em; }
   button:hover,
   .wp-block-button__link:hover,

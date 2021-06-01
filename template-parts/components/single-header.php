@@ -51,7 +51,7 @@
             <div class="c-single__date">
                 <span class="h6 u-letter-space-regular">
                     <a href="<?php echo esc_url( get_permalink() ) ?>">
-                        <?php echo esc_html( get_the_date( "M d, Y" ) ) ?>
+                        <?php echo esc_html( get_the_date() ) ?>
                     </a>
                 </span>
             </div><!-- c-single__date -->

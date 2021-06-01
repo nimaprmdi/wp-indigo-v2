@@ -32,14 +32,15 @@
     position: absolute;
     right: -12px;
     top: -6px;
-    background: url("https://api.iconify.design/bx:bx-search-alt-2.svg") no-repeat center center / contain;
+    background: url("https://api.iconify.design/bx:bx-search-alt-2.svg") no-repeat center
+      center / contain;
 
     background-size: 20px;
 
     &:hover {
       background-color: transparent;
-      background: url("https://api.iconify.design/bx:bx-search-alt-2.svg?color=%233f51b5") no-repeat center center /
-        contain;
+      background: url("https://api.iconify.design/bx:bx-search-alt-2.svg?color=%233f51b5")
+        no-repeat center center / contain;
       background-size: 20px;
     }
 
@@ -68,8 +69,8 @@
     list-style-type: none;
     padding-left: 0px;
     margin-left: 0px;
-
-    font-family: $wp_indigo_texts_secondary_font;
+    font-family: $wp_indigo_primary_font;
+    font-weight: 300;
   }
 
   li {

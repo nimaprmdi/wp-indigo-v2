@@ -394,3 +394,32 @@ if ( ! function_exists( 'wp_indigo_branding' ) ) :
 	}
 	
 endif;
+
+if (! function_exists('wp_indigo_get_archives_class')) :
+	/**
+	  * Get archive class
+	  */
+	function wp_indigo_get_archives_class() {
+		if ( 'portfolios' == get_post_type() ) {
+			echo esc_attr( 'c-main--portfolios' );
+		}
+	}
+endif;
+
+if (! function_exists('wp_indigo_get_archives_title')) :
+	/**
+	  * Display archive title 
+	  */
+	function wp_indigo_get_archives_title() {
+		if ( 'portfolios' == get_post_type() ) {
+			$wp_indigo_archive_title = esc_html__( 'Portfolio', 'wp-indigo' );
+		}
+		else{
+			$wp_indigo_archive_title = wp_kses_post( get_the_archive_title() );
+		}
+
+		echo wp_kses_post( $wp_indigo_archive_title );
+
+
+	}
+endif;

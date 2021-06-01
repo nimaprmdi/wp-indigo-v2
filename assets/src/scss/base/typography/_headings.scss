@@ -15,7 +15,7 @@ h6 {
 /* H1 */
 h1,
 .h1 {
-  font-family: $wp_indigo_primary_font_regular;
+  font-family: $wp_indigo_primary_font;
   font-weight: 400;
   font-size: 26px;
   line-height: 40px;
@@ -26,7 +26,7 @@ h1,
 /* H2 */
 h2,
 .h2 {
-  font-family: $wp_indigo_primary_font_regular;
+  font-family: $wp_indigo_primary_font;
   font-size: 20px;
   line-height: 31px;
   font-weight: 400;
@@ -36,7 +36,7 @@ h2,
 /* H3 */
 h3,
 .h3 {
-  font-family: $wp_indigo_primary_font_regular;
+  font-family: $wp_indigo_primary_font;
   font-size: 16px;
   line-height: 24px;
   // letter-spacing: 10px;
@@ -47,29 +47,29 @@ h3,
 /* H4 */
 h4,
 .h4 {
-  font-family: $wp_indigo_secondary_font_regular;
+  font-family: $wp_indigo_secondary_font;
+  font-weight: 400;
   font-size: 16px;
   line-height: 27px;
   // letter-spacing: 3px;
-  font-weight: 400;
   color: $wp-indigo_primary_color;
 }
 
 /* H5 */
 h5,
 .h5 {
-  font-family: $wp_indigo_secondary_font_regular;
+  font-family: $wp_indigo_secondary_font;
+  font-weight: 400;
   font-size: 13px;
   line-height: 16px;
   // letter-spacing: 3px;
-  font-weight: 400;
   color: $wp-indigo_primary_color;
 }
 
 /* H6 */
 h6,
 .h6 {
-  font-family: $wp_indigo_primary_font_light;
+  font-family: $wp_indigo_primary_font;
   font-size: 13px;
   line-height: 21px;
   // letter-spacing: 5px;

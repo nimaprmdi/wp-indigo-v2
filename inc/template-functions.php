@@ -62,33 +62,14 @@ function wp_indigo_typography() {
 		$wp_indigo_quaternary_color = get_theme_mod( 'wp_indigo_quaternary_color' );
 	}
 	
-	/* Font Family */
-	if ( get_theme_mod( 'typography_headings_font' ) == "" ) {
-		$wp_indigo_headings_font['font-family'] = "overpass";
-	} else {
-		$wp_indigo_headings_font = get_theme_mod( 'typography_headings_font' );
-	}
-	if ( get_theme_mod( 'typography_texts_font' ) == "" ) {
-		$wp_indigo_texts_font['font-family'] = "sourceserifpro-regular";
-	} else {
-		$wp_indigo_texts_font = get_theme_mod( 'typography_texts_font' );
-	}
-	if ( get_theme_mod( 'typography_text_secondary_font' ) == "" ) {
-		$wp_indigo_texts_secondary_font['font-family'] = "overpass-light";
-	} else {
-		$wp_indigo_texts_secondary_font = get_theme_mod( 'typography_text_secondary_font' );
-	}
+
 
 
 	$html = ':root {	
 	            --wp_indigo_primary-color: '.$wp_indigo_primary_color.';
 	            --wp_indigo_secondary-color: '.$wp_indigo_secondary_color.';
 				--wp_indigo_tertiary_color: '.$wp_indigo_tertiary_color.';
-				--wp_indigo_quaternary_color: '.$wp_indigo_quaternary_color.';
-
-                --wp_indigo_headings_font: '. $wp_indigo_headings_font["font-family"] .';
-				--wp_indigo_texts_font: '. $wp_indigo_texts_font["font-family"] .';
-				--wp_indigo_texts_secondary_font: '. $wp_indigo_texts_secondary_font["font-family"] .';
+				--wp_indigo_quaternary_color: '.$wp_indigo_quaternary_color.'
 
 			}';
 			
@@ -208,7 +189,7 @@ if( true == get_theme_mod( 'portfolios_control', true ) ) {
   
   
 
-  function wp_indigo_modify_libwp_taxonomy_argument($wp_indigo_taxonomyArguments){
+function wp_indigo_modify_libwp_taxonomy_argument($wp_indigo_taxonomyArguments){
   /**
 	* Modify LibWP taxonomy name (If libwp plugin exist)
 	*/
@@ -232,3 +213,14 @@ if( true == get_theme_mod( 'portfolios_control', true ) ) {
 add_filter('libwp_taxonomy_1_arguments', 'wp_indigo_modify_libwp_taxonomy_argument');
 
 }
+
+function wp_indigo_add_menu_link_class( $wp_indigo_atts, $wp_indigo_item, $wp_indigo_args ) {
+	/**
+	* Add class to nav menu links 
+	*/
+	if (property_exists($wp_indigo_args, 'link_class')) {
+	  $wp_indigo_atts['class'] = $wp_indigo_args->link_class;
+	}
+	return $wp_indigo_atts;
+  }
+add_filter( 'nav_menu_link_attributes', 'wp_indigo_add_menu_link_class', 1, 3 );
