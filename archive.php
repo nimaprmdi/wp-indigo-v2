@@ -12,7 +12,9 @@ get_header();
 <main id="primary" class="c-main site-main">
 
     <header class="c-main__header">
-        <h1 class="c-main__page-title"><?php echo wp_kses_post( get_the_archive_title() ); ?></h1>
+        <h1 class="c-main__page-title">
+		<?php echo wp_kses_post( get_the_archive_title() ); ?>
+		</h1>
     </header>
 
     <section class="c-main__content">
