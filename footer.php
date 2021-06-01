@@ -42,16 +42,13 @@
 
                         );
 
-                        echo strip_tags(wp_nav_menu( $wp_indigo_menuParameters ), '<a>' );
+                        echo wp_kses_post(strip_tags(wp_nav_menu( $wp_indigo_menuParameters ), '<a>' ));
                         
                     }
                     ?>
 
-                </div>
-
-
-              
-                
+                </div>              
+            
             </div><!-- .site-info -->
 
         </div>

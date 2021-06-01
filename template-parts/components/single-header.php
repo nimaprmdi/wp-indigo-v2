@@ -1,6 +1,3 @@
-<?php 
-
-?>
 <section class="c-single__entry-header">
 
     <div class="c-single__entry-header__content">
